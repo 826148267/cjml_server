@@ -1,0 +1,14 @@
+#open-btn:pressed {
+    -fx-background-color: #3a4199;
+}
+.rx-media-progress-bar {
+    /*圆圈按钮的颜色*/
+    -rx-thumb-fill: #ffffff;
+}
+.lrcPane {
+    -fx-border-width: 0px;
+}
+
+.spectrum {
+    -fx-border-width: 0px;
+}

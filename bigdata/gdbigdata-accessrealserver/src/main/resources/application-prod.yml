@@ -1,0 +1,17 @@
+swagger:
+  enable: false
+
+logging:
+  level:
+    edu:
+      jnu=info:
+  file:
+    name: /gdbigdata/accessrealserver/gdbd-ars-log.txt
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server-0.eureka-server:17000/eureka/,http://eureka-server-1.eureka-server:17000/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}.${server.port}
