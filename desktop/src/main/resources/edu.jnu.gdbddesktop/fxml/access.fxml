@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXAvatar?>
+<?import com.leewyatt.rxcontrols.controls.RXTextField?>
+<?import com.leewyatt.rxcontrols.controls.RXTranslationButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="761.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.jnu.gdbddesktop.controller.core.AccessController">
+   <children>
+      <AnchorPane layoutX="68.0" layoutY="84.0" prefHeight="365.0" prefWidth="635.0" style="-fx-background-color: #f1f1f1; -fx-background-radius: 15;" AnchorPane.leftAnchor="68.0" AnchorPane.topAnchor="84.0">
+         <children>
+            <Pane prefHeight="250.0" prefWidth="177.0" style="-fx-background-color: #9ddcfa; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <RXAvatar fx:id="avatar" layoutX="33.0" layoutY="43.0">
+                     <image>
+                        <Image url="@../image/avatar.png" />
+                     </image>
+                     <effect>
+                        <InnerShadow color="#1a90ff" />
+                     </effect>
+                  </RXAvatar>
+                  <Label fx:id="userName" alignment="CENTER" layoutX="33.0" layoutY="162.0" prefHeight="24.0" prefWidth="112.0" style="-fx-background-color: #1f6fb5; -fx-background-radius: 50;" text="gzf" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="268.0" text="地址：暨南大学" />
+                  <Label layoutX="34.0" layoutY="230.0" text="组织：暨南大学" />
+                  <Label layoutX="34.0" layoutY="304.0" text="文件数量：0" />
+               </children>
+            </Pane>
+            <Label layoutX="278.0" layoutY="25.0" text="Welcome">
+               <font>
+                  <Font size="28.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/hi.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label layoutX="244.0" layoutY="181.0" text="地址：">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="244.0" layoutY="103.0" text="组织：">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <RXTextField layoutX="336.0" layoutY="108.0" />
+            <RXTextField layoutX="338.0" layoutY="187.0" />
+            <RXTranslationButton layoutX="252.0" layoutY="269.0" onMouseClicked="#updateInfo" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #33dd72; -fx-background-radius: 15;" text="提交" translationDir="RIGHT_TO_LEFT">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/signin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </RXTranslationButton>
+            <RXTranslationButton fx:id="loginBtn" layoutX="415.0" layoutY="269.0" onMouseClicked="#refreshInfo" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="刷新数据" translationDir="RIGHT_TO_LEFT">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/login.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </RXTranslationButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
