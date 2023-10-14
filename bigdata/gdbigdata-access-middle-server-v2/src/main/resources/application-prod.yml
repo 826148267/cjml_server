@@ -1,0 +1,23 @@
+logging:
+  file:
+    name: /gdbigdata/accessmiddleserver/gdbd-ams-log.txt
+  level:
+    edu.jnu: info
+
+spring:
+  redis:
+    database: 0
+    host: 
+    port: 30006
+    password: 
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server-0.eureka-server:17000/eureka/,http://eureka-server-1.eureka-server:17000/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}.${server.port}
+
+swagger:
+    enable: false
