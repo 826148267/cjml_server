@@ -1,0 +1,661 @@
+/***************************************************
+ *                                                 *
+ *   @author : ChenFei                             *
+ *   @date : 2020/06/10                            *
+ *                                                 *
+ ***************************************************/
+/**/
+/***********************************
+    Button 按钮样式
+***********************************/
+.cf-but,.cf-primary-but,.cf-success-but,.cf-warn-but,.cf-info-but,.cf-danger-but{
+    -fx-background-insets: 0;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-pref-height: 32px;
+    /*-fx-min-height: 32px;*/
+    -fx-padding: 0px 15px 0px 15px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: rgb(255,255,255);
+    -fx-cursor:hand;
+}
+.cf-but{-fx-text-fill: text-color;-fx-background-color: base-color;-fx-border-color:border-color;}
+.cf-primary-but > .ikonli-font-icon,.cf-success-but > .ikonli-font-icon,.cf-warn-but > .ikonli-font-icon,.cf-info-but > .ikonli-font-icon,.cf-danger-but > .ikonli-font-icon{
+    -fx-icon-size: 17px;
+    -fx-icon-color: rgb(255, 255, 255);
+}
+.cf-but > .ikonli-font-icon{-fx-icon-size: 20px;-fx-icon-color: text-color;}
+.cf-primary-but{-fx-background-color: primary-color;}
+.cf-success-but{-fx-background-color: success-color;}
+.cf-info-but{-fx-background-color: info-color;}
+.cf-warn-but{-fx-background-color: warn-color;}
+.cf-danger-but{-fx-background-color: danger-color;}
+/*hover:*/
+.cf-but:hover{-fx-text-fill:derive(primary-color,20%);}
+.cf-but:hover > .ikonli-font-icon{-fx-icon-color: primary-color;}
+.cf-primary-but:hover{-fx-background-color: derive(primary-color,20%);}
+.cf-success-but:hover{-fx-background-color: derive(success-color,20%);}
+.cf-info-but:hover{-fx-background-color: derive(info-color,20%);}
+.cf-warn-but:hover{-fx-background-color: derive(warn-color,20%);}
+.cf-danger-but:hover{-fx-background-color: derive(danger-color,20%);}
+/*pressed:*/
+.cf-but:pressed{-fx-text-fill:derive(primary-color,-20%);}
+.cf-but:pressed > .ikonli-font-icon{-fx-icon-color: derive(primary-color,-20%);}
+.cf-primary-but:pressed{-fx-background-color: derive(primary-color,-20%);}
+.cf-success-but:pressed{-fx-background-color: derive(success-color,-20%);}
+.cf-info-but:pressed{-fx-background-color: derive(info-color,-20%);}
+.cf-warn-but:pressed{-fx-background-color: derive(warn-color,-20%);}
+.cf-danger-but:pressed{-fx-background-color: derive(danger-color,-20%);}
+/*focused:*/
+.cf-but:focused,.cf-primary-but:focused,.cf-success-but:focused,.cf-warn-but:focused,.cf-info-but:focused,.cf-danger-but:focused{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0,0.7), 5.0,0, 0, 2);
+}
+/*圆角按钮round*/
+.cf-but.round,.cf-primary-but.round,.cf-success-but.round,.cf-warn-but.round,.cf-info-but.round,.cf-danger-but.round{
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+}
+/*无文字-图标按钮*/
+.cf-but.icon,.cf-primary-but.icon,.cf-success-but.icon,.cf-warn-but.icon,.cf-info-but.icon,.cf-danger-but.icon{
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-padding:0px;
+    -fx-pref-width:32px;
+}
+/*按钮组*/
+.but-group-h,.but-group-v{-fx-spacing: 1px;}
+.but-group-h > .button,.but-group-v > .button{
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+}
+.but-group-h > .first{
+    -fx-border-radius: 3px 0 0 3px;
+    -fx-background-radius: 3px 0 0 3px;
+}
+.but-group-h > .last{
+    -fx-border-radius: 0 3px 3px 0;
+    -fx-background-radius: 0 3px 3px 0;
+}
+.but-group-v > .first{
+    -fx-border-radius: 3px 3px 0 0;
+    -fx-background-radius: 3px 3px 0 0;
+}
+.but-group-v > .last{
+    -fx-border-radius: 0 0 3px 3px;
+    -fx-background-radius: 0 0 3px 3px;
+}
+/***********************************
+    TextField , PasswordField , TextArea 输入框样式
+***********************************/
+.cf-text-field,.cf-password-field,.cf-text-area{
+    -fx-text-fill: text-color;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-border-color: border-color;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-background-insets:0;
+    -fx-background-color:transparent;
+}
+.cf-text-field,.cf-password-field{
+    -fx-padding: 0 10px 0 10px;
+    -fx-pref-height: 32px;
+}
+.cf-text-field:focused,.cf-password-field:focused,.cf-text-area:focused{
+    -fx-border-color: primary-color;
+}
+.cf-text-area{
+    -fx-wrap-text:true;
+}
+.cf-text-area .content, .cf-text-area > .scroll-pane > .viewport{
+    -fx-background-color:transparent;
+}
+/***********************************
+    TableView 表格样式
+***********************************/
+.cf-table-view{
+    -fx-background-insets: 0;
+    -fx-padding:0px;
+    -fx-border-color: border-color;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-background-color: transparent;
+}
+.cf-table-view > .column-header-background{
+    /*-fx-background-color: transparent;*/
+    -fx-background-color:rgba(0,0,0,0.05);
+}
+.cf-table-view .column-header{
+    -fx-background-color: transparent;
+    -fx-pref-height:36px;
+    -fx-border-width: 0 1px 1px 0;
+    -fx-border-color:border-color;
+}
+.cf-table-view .column-header:last-visible{
+    -fx-border-width: 0 0px 1px 0;
+}
+.cf-table-view .column-header .label {
+    -fx-alignment: center-left;
+    -fx-text-fill: text-color;
+    -fx-padding: 0 10px 0 10px;
+}
+.cf-table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected,
+.cf-table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:hover{
+    -fx-background-color: derive(primary-color,90%);
+}
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected > .table-cell{
+    -fx-text-fill: text-color;
+}
+.cf-table-view .table-row-cell {
+    -fx-min-height:36px;
+    -fx-background-insets: 0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color:border-color;
+}
+.cf-table-view .table-cell {
+    -fx-border-width: 0 1px 0 0;
+    -fx-border-color:border-color;
+    -fx-alignment: center-left;
+    -fx-padding: 0 10px 0 10px;
+}
+.cf-table-view .table-cell:last-visible{
+    -fx-border-width: 0;
+}
+.cf-table-view .table-row-cell:even {
+    -fx-background-color: transparent;
+}
+.cf-table-view .table-row-cell:odd {
+    -fx-background-color: rgba(0,0,0,0.02);
+}
+.cf-table-view .table-cell:empty {
+    -fx-border-width: 0px;
+}
+.cf-table-view .table-row-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-width: 0px;
+    -fx-background-insets: 0;
+}
+/***********************************
+    Hyperlink 超链接样式
+***********************************/
+.cf-link,.cf-primary-link,.cf-success-link,.cf-info-link,.cf-danger-link,.cf-warn-link{-fx-border-width:0;-fx-font-size:14px;}
+.cf-link{-fx-text-fill: text-color;}
+.cf-primary-link{-fx-text-fill: primary-color;}
+.cf-success-link{-fx-text-fill: success-color;}
+.cf-info-link{-fx-text-fill: info-color;}
+.cf-warn-link{-fx-text-fill: warn-color;}
+.cf-danger-link{-fx-text-fill: danger-color;}
+/***********************************
+    Label 标签样式
+***********************************/
+.cf-primary-label,.cf-success-label,.cf-info-label,.cf-warn-label,.cf-danger-label,
+.cf-primary-label-b,.cf-success-label-b,.cf-info-label-b,.cf-warn-label-b,.cf-danger-label-b{
+    -fx-label-padding: 0px 10px 0px 10px;
+    -fx-pref-height: 24px;
+    -fx-font-size: 12px;
+    -fx-border-radius: 3px;
+    -fx-text-fill:rgb(255,255,255);
+    -fx-background-radius:3px;
+}
+.cf-primary-label > .ikonli-font-icon,
+.cf-success-label > .ikonli-font-icon,
+.cf-info-label > .ikonli-font-icon,
+.cf-warn-label > .ikonli-font-icon,
+.cf-danger-label > .ikonli-font-icon{
+    -fx-icon-size: 14px;
+}
+.cf-primary-label-b > .ikonli-font-icon,
+.cf-success-label-b > .ikonli-font-icon,
+.cf-info-label-b > .ikonli-font-icon,
+.cf-warn-label-b > .ikonli-font-icon,
+.cf-danger-label-b > .ikonli-font-icon{
+    -fx-icon-size: 14px;
+    -fx-icon-color: rgb(255,255,255);
+}
+.cf-primary-label, .cf-primary-label > .ikonli-font-icon{-fx-text-fill:primary-color;-fx-border-color:primary-color;-fx-icon-color: primary-color;}
+.cf-success-label, .cf-success-label > .ikonli-font-icon{-fx-text-fill:success-color;-fx-border-color:success-color;-fx-icon-color: success-color;}
+.cf-info-label, .cf-info-label > .ikonli-font-icon{-fx-text-fill:info-color;-fx-border-color:info-color;-fx-icon-color: info-color;}
+.cf-warn-label, .cf-warn-label > .ikonli-font-icon{-fx-text-fill:warn-color;-fx-border-color:warn-color;-fx-icon-color: warn-color;}
+.cf-danger-label, .cf-danger-label > .ikonli-font-icon{-fx-text-fill:danger-color;-fx-border-color:danger-color;-fx-icon-color: danger-color;}
+/*背景*/
+.cf-primary-label-b{-fx-background-color:primary-color;}
+.cf-success-label-b{-fx-background-color:success-color;}
+.cf-info-label-b{-fx-background-color:info-color;}
+.cf-warn-label-b{-fx-background-color:warn-color;}
+.cf-danger-label-b{-fx-background-color:danger-color;}
+/***********************************
+    Pagination 分页样式
+***********************************/
+.cf-pagination,.cf-pagination-b{
+    -fx-font-size:14px;
+}
+.cf-pagination > .pagination-control > .page-information{
+    -fx-text-fill:text-color;
+}
+.cf-pagination > .pagination-control .left-arrow-button,
+.cf-pagination > .pagination-control .right-arrow-button,
+.cf-pagination > .pagination-control .number-button,
+.cf-pagination-b > .pagination-control .left-arrow-button,
+.cf-pagination-b > .pagination-control .right-arrow-button,
+.cf-pagination-b > .pagination-control .number-button{
+    -fx-min-height:28px;
+    -fx-min-width:28px;
+    -fx-background-color: transparent;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+.cf-pagination > .pagination-control .number-button:hover,
+.cf-pagination-b > .pagination-control .number-button:hover{
+    -fx-cursor:hand;
+    -fx-text-fill: primary-color;
+}
+.cf-pagination > .pagination-control .number-button:selected{
+    -fx-background-color: transparent;
+    -fx-text-fill: primary-color;
+}
+.cf-pagination > .pagination-control .left-arrow-button:hover > .left-arrow,
+.cf-pagination > .pagination-control .right-arrow-button:hover > .right-arrow{
+    -fx-background-color: primary-color;
+}
+/*有背景颜色*/
+.cf-pagination-b > .pagination-control .left-arrow-button,
+.cf-pagination-b > .pagination-control .right-arrow-button,
+.cf-pagination-b > .pagination-control .number-button{
+    -fx-background-color: border-color;
+}
+.cf-pagination-b > .pagination-control .number-button:selected{
+    -fx-background-color: primary-color;
+    -fx-text-fill: rgb(255,255,255);
+}
+.cf-pagination-b > .pagination-control .left-arrow-button:hover > .left-arrow,
+.cf-pagination-b > .pagination-control .right-arrow-button:hover > .right-arrow{
+    -fx-background-color: primary-color;
+}
+/***********************************
+    Slider 滑动器样式
+***********************************/
+.cf-slider > .track,.cf-slider > .thumb{-fx-background-color: text-color;}
+.cf-primary-slider > .track,.cf-primary-slider > .thumb{-fx-background-color: primary-color;}
+.cf-success-slider > .track,.cf-success-slider > .thumb{-fx-background-color: success-color;}
+.cf-info-slider > .track,.cf-info-slider > .thumb{ -fx-background-color: info-color;}
+.cf-warn-slider > .track,.cf-warn-slider > .thumb{-fx-background-color: warn-color;}
+.cf-danger-slider > .track,.cf-danger-slider > .thumb{-fx-background-color: danger-color;}
+
+.cf-slider:vertical > .track,.cf-primary-slider:vertical > .track,
+.cf-success-slider:vertical > .track,.cf-info-slider:vertical > .track,
+.cf-warn-slider:vertical > .track,.cf-danger-slider:vertical > .track{
+    -fx-pref-width: 3px;
+    -fx-background-insets:0;
+}
+.cf-slider:vertical > .thumb ,.cf-success-slider:vertical > .thumb,
+.cf-info-slider:vertical > .thumb, .cf-warn-slider:vertical > .thumb,
+.cf-danger-slider:vertical > .thumb, .cf-primary-slider:vertical > .thumb {
+    -fx-pref-width: 20px;
+    -fx-pref-height: 8px;
+}
+.cf-slider:horizontal > .track,.cf-primary-slider:horizontal > .track,
+.cf-success-slider:horizontal > .track,.cf-info-slider:horizontal > .track,
+.cf-warn-slider:horizontal > .track,.cf-danger-slider:horizontal > .track{
+    -fx-pref-height: 3px;
+    -fx-background-insets:0;
+}
+.cf-slider:horizontal > .thumb ,.cf-success-slider:horizontal > .thumb,
+.cf-info-slider:horizontal > .thumb, .cf-warn-slider:horizontal > .thumb,
+.cf-danger-slider:horizontal > .thumb, .cf-primary-slider:horizontal > .thumb {
+    -fx-pref-height: 20px;
+    -fx-pref-width: 8px;
+}
+.cf-slider > .thumb:hover ,.cf-success-slider > .thumb:hover,.cf-info-slider > .thumb:hover,
+.cf-warn-slider > .thumb:hover,.cf-danger-slider > .thumb:hover,.cf-primary-slider > .thumb:hover {
+       -fx-effect: dropshadow(three-pass-box, rgb(0, 0, 0, 0.5), 10.0,0, 0, 0);
+}
+/***********************************
+    Separator 分割线样式
+***********************************/
+.cf-separator > .line,.cf-primary-separator > .line,.cf-success-separator > .line,.cf-info-separator > .line,.cf-warn-separator > .line,.cf-danger-separator > .line{-fx-border-width: 1px;}
+.cf-separator:horizontal > .line {-fx-border-color: border-color transparent transparent transparent;}
+.cf-primary-separator:horizontal > .line {-fx-border-color: primary-color transparent transparent transparent;}
+.cf-success-separator:horizontal > .line {-fx-border-color: success-color transparent transparent transparent;}
+.cf-info-separator:horizontal > .line {-fx-border-color: info-color transparent transparent transparent;}
+.cf-warn-separator:horizontal > .line {-fx-border-color: warn-color transparent transparent transparent;}
+.cf-danger-separator:horizontal > .line {-fx-border-color: danger-color transparent transparent transparent;}
+
+.cf-separator:vertical > .line {-fx-border-color: transparent border-color transparent transparent;}
+.cf-primary-separator:vertical > .line {-fx-border-color: transparent primary-color transparent transparent;}
+.cf-success-separator:vertical > .line {-fx-border-color: transparent success-color transparent transparent;}
+.cf-info-separator:vertical > .line {-fx-border-color: transparent info-color transparent transparent;}
+.cf-warn-separator:vertical > .line {-fx-border-color: transparent warn-color transparent transparent;}
+.cf-danger-separator:vertical > .line {-fx-border-color: transparent danger-color transparent transparent;}
+/***********************************
+    ProgressBar 进度条样式
+***********************************/
+.cf-progress-bar,.cf-success-progress-bar,.cf-primary-progress-bar,.cf-info-progress-bar,.cf-warn-progress-bar,.cf-danger-progress-bar{
+    -fx-indeterminate-bar-length:70;
+    -fx-indeterminate-bar-animation-time:1.5;
+    -fx-pref-width: 200px;
+}
+.cf-progress-bar > .track,.cf-primary-progress-bar > .track,.cf-success-progress-bar > .track,
+.cf-info-progress-bar > .track,.cf-warn-progress-bar > .track,.cf-danger-progress-bar > .track{
+    -fx-background-color: base-color;
+    -fx-border-color: border-color;
+    -fx-border-radius: 3px;
+}
+.cf-progress-bar > .bar,.cf-primary-progress-bar > .bar,.cf-success-progress-bar > .bar,
+.cf-info-progress-bar > .bar,.cf-warn-progress-bar > .bar,.cf-danger-progress-bar > .bar{
+    -fx-pref-height: 6px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3px;
+}
+.cf-progress-bar > .bar {-fx-background-color: text-color;}
+.cf-primary-progress-bar > .bar {-fx-background-color: primary-color;}
+.cf-success-progress-bar > .bar {-fx-background-color: success-color;}
+.cf-info-progress-bar > .bar {-fx-background-color: info-color;}
+.cf-warn-progress-bar > .bar {-fx-background-color: warn-color;}
+.cf-danger-progress-bar > .bar {-fx-background-color: danger-color;}
+
+/***********************************
+    ProgressIndicator 进度指示器样式
+***********************************/
+.cf-progress-indicator{
+    /*-fx-indeterminate-segment-count:8;*/
+    -fx-progress-color: primary-color;
+    /*-fx-spin-enabled:true;*/
+}
+.cf-progress-indicator{-fx-progress-color: primary-color;}
+.cf-progress-indicator:determinate{-fx-min-height:65px;-fx-min-width:65px;}
+
+/***********************************
+    Spinner 步进器样式
+***********************************/
+.cf-spinner{
+    -fx-pref-width:150px;
+    -fx-pref-height: 32px;
+    -fx-text-fill: text-color;
+    -fx-font-size: 14px;
+    -fx-background-insets:0;
+    -fx-border-color: border-color;
+    -fx-border-radius: 3px;
+    -fx-background-color:transparent;
+}
+.cf-spinner:focused,
+.cf-spinner:contains-focus {
+    -fx-background-color: transparent;
+    -fx-border-color: primary-color;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3px;
+}
+.cf-spinner > .text-field{
+    -fx-background-color:transparent;
+    -fx-alignment:center;
+}
+.cf-spinner .increment-arrow-button, .cf-spinner .decrement-arrow-button{
+    -fx-background-color: base-color;
+    -fx-background-insets: 0;
+    -fx-text-fill:text-color;
+    -fx-border-width:1px;
+    -fx-border-color:transparent;
+}
+.cf-spinner .increment-arrow-button:hover > .increment-arrow, .cf-spinner .decrement-arrow-button:hover > .decrement-arrow{
+    -fx-background-color:primary-color;
+}
+.cf-spinner.arrows-on-right-horizontal .increment-arrow-button,.cf-spinner.arrows-on-right-horizontal .decrement-arrow-button{
+    -fx-border-color:transparent transparent transparent border-color;
+}
+.cf-spinner.arrows-on-left-vertical .increment-arrow-button{
+    -fx-border-color:transparent border-color border-color transparent;
+}
+.cf-spinner.arrows-on-left-vertical .decrement-arrow-button{
+    -fx-border-color:transparent border-color transparent transparent;
+}
+.cf-spinner.arrows-on-left-horizontal .increment-arrow-button,.cf-spinner.arrows-on-left-horizontal .decrement-arrow-button{
+    -fx-border-color:transparent border-color transparent transparent;
+}
+.cf-spinner.split-arrows-vertical .increment-arrow-button{
+    -fx-border-color: transparent transparent border-color transparent;
+}
+.cf-spinner.split-arrows-vertical .decrement-arrow-button{
+    -fx-border-color: border-color transparent transparent transparent;
+}
+.cf-spinner.split-arrows-horizontal .increment-arrow-button{
+    -fx-border-color:transparent transparent transparent border-color;
+}
+.cf-spinner.split-arrows-horizontal .decrement-arrow-button{
+    -fx-border-color:transparent border-color transparent transparent;
+}
+/***********************************
+    CheckBox 复选框样式
+***********************************/
+.cf-check-box,.cf-check-box-b{
+    -fx-font-size:14px;
+    -fx-text-fill:text-color;
+}
+.cf-check-box >. box,.cf-check-box-b >. box{
+    /*-fx-padding: 0px;*/
+    -fx-background-insets: 0;
+    -fx-background-color: transparent;
+}
+.cf-check-box > .box > .mark,.cf-check-box-b > .box > .mark{
+    -fx-background-insets:0;
+    -fx-background-radius: 3;
+    -fx-border-color: border-color;
+    -fx-border-radius: 3px;
+    -fx-background-color: base-color;
+    -fx-shape: none;
+}
+.cf-check-box:selected, .cf-check-box-b:selected{
+    -fx-text-fill:primary-color;
+}
+.cf-check-box:selected > .box > .mark,.cf-check-box-b:selected > .box > .mark{
+    -fx-background-color: primary-color;
+    -fx-border-color: transparent;
+    -fx-background-image: url("checkbox.png");
+    -fx-background-size:contain;
+
+}
+/*带边框*/
+.cf-check-box-b{
+    -fx-pref-height:32px;
+    -fx-padding: 0px 15px 0px 15px;
+    -fx-border-color:border-color;
+    -fx-border-radius:3px;
+}
+.cf-check-box-b:selected{
+    -fx-border-color: primary-color;
+}
+/***********************************
+    RadioButton 单选框样式
+***********************************/
+.cf-radio-button,.cf-radio-button-b {
+    -fx-font-size:14px;
+    -fx-text-fill:text-color;
+}
+.cf-radio-button > .radio,.cf-radio-button-b > .radio {
+    -fx-pref-width:16px;
+    -fx-pref-height:16px;
+    -fx-background-color: base-color;
+    -fx-background-radius:8px;
+    -fx-background-insets: 0;
+    -fx-border-color:border-color;
+    -fx-border-radius:8px;
+}
+.cf-radio-button > .radio > .dot,.cf-radio-button-b > .radio > .dot {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 3px;
+}
+.cf-radio-button:selected{
+    -fx-text-fill:primary-color;
+}
+.cf-radio-button:selected > .radio,.cf-radio-button-b:selected > .radio{
+    -fx-background-color: primary-color;
+    -fx-border-color:transparent;
+}
+.cf-radio-button:selected > .radio > .dot,.cf-radio-button-b:selected > .radio > .dot {
+    -fx-background-insets: 0;
+    -fx-background-color: rgb(255,255,255);
+}
+/*带边框*/
+.cf-radio-button-b{
+    -fx-pref-height:32px;
+    -fx-padding: 0px 15px 0px 15px;
+    -fx-border-color:border-color;
+    -fx-border-radius:3px;
+}
+.cf-radio-button-b:selected{
+    -fx-text-fill: primary-color;
+    -fx-border-color: primary-color;
+}
+/***********************************
+    TreeView 树形控件样式
+***********************************/
+.cf-tree-view{
+    -fx-background-insets: 0;
+    -fx-padding:0px;
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-text-fill:text-color;
+}
+.cf-tree-view > .ikonli-font-icon{
+    -fx-icon-size: 15px;
+    -fx-icon-color: text-color;
+}
+.cf-tree-view .tree-cell{
+    -fx-background-color:transparent;
+}
+.cf-tree-view .tree-cell > .tree-disclosure-node > .arrow{
+    -fx-background-color: text-color;
+}
+.cf-tree-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-cell:filled:hover,
+.cf-tree-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-cell:filled:selected {
+    -fx-background-color: derive(primary-color,95%);
+}
+/*.label : 如果你treeItem里不是 label 你就要自己处理了*/
+.cf-tree-view:focused .tree-cell:selected .label{
+     -fx-text-fill:text-color;
+}
+/***********************************
+    ComboBox 下拉列表样式
+***********************************/
+.cf-combo-box{
+    -fx-background-color: transparent;
+    /*-fx-padding: 0 15px 0 15px;*/
+    -fx-pref-height: 32px;
+    -fx-pref-width: 200px;
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-border-color: border-color;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-background-insets:0;
+    -fx-text-fill: text-color;
+}
+.cf-combo-box:hover{
+    -fx-cursor:hand;
+}
+.cf-combo-box:focused{
+    -fx-border-color: primary-color;
+}
+.cf-combo-box .combo-box-popup .list-view{
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding:3px 0 3px 0;
+    -fx-background-color:rgb(255,255,255);
+    -fx-border-color:border-color;
+}
+.cf-combo-box .combo-box-popup .list-cell:hover ,.cf-combo-box .combo-box-popup .list-cell:focused{
+    -fx-text-fill: text-color;
+    -fx-background-color: derive(primary-color,95%);
+}
+
+.cf-tooltip,.cf-tooltip-light{
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-border-radius:3px;
+    -fx-background-radius:3px;
+}
+.cf-tooltip-light{
+    -fx-background-color:rgba(255,255,255,0.8);
+    -fx-text-fill:text-color;
+}
+/***********************************
+    ScrollBar 滚动条样式
+***********************************/
+.cf-scroll-bar-style .scroll-bar{
+    /*-fx-block-increment:10000;*/
+    -fx-unit-increment:20;
+    -fx-background-color: transparent;
+}
+.cf-scroll-bar-style .scroll-bar > .decrement-button > .decrement-arrow,
+.cf-scroll-bar-style .scroll-bar > .increment-button > .increment-arrow{
+    -fx-background-color: transparent;
+}
+.cf-scroll-bar-style .scroll-bar:vertical > .decrement-button,
+.cf-scroll-bar-style .scroll-bar:vertical > .increment-button{
+    -fx-pref-height:0px;
+    -fx-pref-width:0.01px;
+}
+.cf-scroll-bar-style .scroll-bar:horizontal > .decrement-button,
+.cf-scroll-bar-style .scroll-bar:horizontal > .increment-button{
+    -fx-pref-width:0px;
+    -fx-pref-height:0.01px;
+}
+.cf-scroll-bar-style .scroll-bar > .track{
+    -fx-background-radius: 0px;
+    -fx-background-color: transparent;
+}
+.cf-scroll-bar-style .scroll-bar:vertical > .thumb, .cf-scroll-bar-style .scroll-bar:horizontal > .thumb{
+    -fx-background-color: rgba(0,0,0,0.3);
+    -fx-background-insets: 0px;
+    -fx-background-radius: 3px;
+}
+.cf-scroll-bar-style .scroll-bar:vertical{
+    -fx-padding:6px 0px 6px 0px;
+}
+.cf-scroll-bar-style .scroll-bar:horizontal{
+    -fx-padding:0px 6px 0px 6px;
+}
+.cf-scroll-bar-style .scroll-bar:vertical > .thumb,.cf-scroll-bar-style .scroll-bar:vertical > .track{
+    -fx-background-insets: 0px 0px 0px -6px;
+}
+.cf-scroll-bar-style .scroll-bar:horizontal > .thumb,.cf-scroll-bar-style .scroll-bar:horizontal > .track{
+    -fx-background-insets: -6px 0px 0px 0px;
+}
+/***********************************
+    ContextMenu 上下文菜单(只美化了一部分)
+***********************************/
+.cf-context-menu,
+.cf-context-menu .context-menu{
+    -fx-background-color:rgb(255,255,255);
+    -fx-background-radius:3px;
+    -fx-background-insets:0 0 0 1.5px;
+    -fx-padding:5px 0 5px 1.5px;
+    -fx-min-width:100px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0,0.5), 5.0,0, 0, 0);
+    -fx-font-size:14px;
+}
+.cf-context-menu .menu-item{
+    -fx-pref-height:30px;
+}
+.cf-context-menu .menu-item:hover,
+.cf-context-menu .menu-item:focused{
+    -fx-background-color: derive(primary-color,90%);
+}
+.cf-context-menu .menu-item:hover > .label,
+.cf-context-menu .menu-item:focused > .label{
+    -fx-text-fill:text-color;
+}
+.cf-context-menu .separator{
+    -fx-pref-height:10px;
+}
+.cf-context-menu .menu-item > .right-container > .arrow{
+    -fx-background-color:text-color;
+}
+
+.dialog-accept {
+    -fx-text-fill: #03A9F4;
+    -fx-font-weight: BOLD;
+    -fx-padding: 0.7em 0.8em;
+}
