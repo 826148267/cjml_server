@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXPasswordField?>
+<?import com.leewyatt.rxcontrols.controls.RXTextField?>
+<?import com.leewyatt.rxcontrols.controls.RXTranslationButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.MaskerPane?>
+
+<StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.jnu.gdbddesktop.controller.LoginController">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="485" style="-fx-background-color: white;" stylesheets="@../css/pane_field.css">
+        <children>
+            <Text id="login-title" layoutX="90.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage System" />
+            <Label layoutX="95.0" layoutY="139.0" styleClass="label-field" text="密码" />
+            <Label layoutX="95.0" layoutY="88.0" styleClass="label-field" text="用户名" />
+            <RXTextField fx:id="usernameField" layoutX="227.0" layoutY="90.0" onClickButton="#deleteText" text="test" />
+            <RXPasswordField fx:id="passwordField" layoutX="227.0" layoutY="141.0" text="test" />
+
+            <RXTranslationButton layoutX="95.0" layoutY="200.0" onAction="#register" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #33dd72; -fx-background-radius: 15;" text="注册" translationDir="RIGHT_TO_LEFT">
+                <graphic>
+                    <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../image/signin.png" />
+                    </ImageView>
+                </graphic>
+                <effect>
+                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                </effect>
+            </RXTranslationButton>
+
+            <RXTranslationButton fx:id="loginBtn" layoutX="275.0" layoutY="200.0" onAction="#loginIn" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="登陆" translationDir="RIGHT_TO_LEFT">
+                <graphic>
+                    <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../image/login.png" />
+                    </ImageView>
+                </graphic>
+                <effect>
+                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                </effect>
+            </RXTranslationButton>
+         <Button id="btnExit" fx:id="btnExitFx" layoutX="456.0" layoutY="-1.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="30.0" prefWidth="30.0">
+            <graphic>
+               <SVGPath content="M10.8,0.2c0.3,0.3,0.3,0.8,0,1.1l-9.5,9.5c-0.3,0.3-0.8,0.3-1.1,0c-0.3-0.3-0.3-0.8,0-1.1l9.5-9.5C10-0.1,10.5-0.1,10.8,0.2zM0.4,0.4c0.3-0.3,0.8-0.3,1,0l9.2,9.2c0.3,0.3,0.3,0.8,0,1c-0.3,0.3-0.8,0.3-1,0L0.4,1.4C0.1,1.1,0.1,0.6,0.4,0.4z" fill="#792626" />
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="DEFAULT" />
+            </cursor>
+         </Button>
+
+        </children>
+    </AnchorPane>
+    <MaskerPane fx:id="maskerPane" text="登录中" visible="false" />
+</StackPane>

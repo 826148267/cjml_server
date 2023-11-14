@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXPasswordField?>
+<?import com.leewyatt.rxcontrols.controls.RXTextField?>
+<?import com.leewyatt.rxcontrols.controls.RXTranslationButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="300.0" prefWidth="643.0" style="-fx-background-color: white;" stylesheets="@../css/pane_field.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.jnu.gdbddesktop.controller.RegisterController">
+   <children>
+      <Text fill="#9fcfe0" fontSmoothingType="LCD" layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="注册需要完善以下信息" wrappingWidth="285.57361602783203">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Label layoutX="56.0" layoutY="90.0" text="用户名" />
+      <Label layoutX="56.0" layoutY="130.0" text="密码" />
+      <Label layoutX="55.0" layoutY="165.0" text="确认密码" />
+      <Label layoutX="356.0" layoutY="89.0" text="用户组织" />
+      <Label layoutX="356.0" layoutY="128.0" text="用户地址" />
+      <Label layoutX="356.0" layoutY="164.0" text="文件数量" />
+      <RXTextField fx:id="userNameField" layoutX="121.0" layoutY="85.0" text="test" />
+      <RXTextField fx:id="userOrganizationField" layoutX="425.0" layoutY="84.0" text="test" />
+      <RXTextField fx:id="userAddressField" layoutX="425.0" layoutY="123.0" text="test" />
+      <RXTextField fx:id="userFileNumsField" layoutX="425.0" layoutY="159.0" text="test" />
+      <RXTranslationButton fx:id="submitBtn" layoutX="174.0" layoutY="227.0" onAction="#register" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #33dd72; -fx-background-radius: 15;" text="提交注册" translationDir="RIGHT_TO_LEFT">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/signin.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </RXTranslationButton>
+      <RXTranslationButton fx:id="toLoginBtn" layoutX="354.0" layoutY="227.0" onAction="#toLogin" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 15;" text="返回登陆" translationDir="RIGHT_TO_LEFT">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/login.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0" />
+         </effect>
+      </RXTranslationButton>
+      <RXPasswordField fx:id="pwdField" layoutX="121.0" layoutY="125.0" text="test" />
+      <RXPasswordField fx:id="confirmPwdField" layoutX="121.0" layoutY="163.0" text="test" />
+      <Button id="btnExit" fx:id="btnExitFx" layoutX="614.0" layoutY="-1.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="30.0" prefWidth="30.0">
+         <graphic>
+            <SVGPath content="M10.8,0.2c0.3,0.3,0.3,0.8,0,1.1l-9.5,9.5c-0.3,0.3-0.8,0.3-1.1,0c-0.3-0.3-0.3-0.8,0-1.1l9.5-9.5C10-0.1,10.5-0.1,10.8,0.2zM0.4,0.4c0.3-0.3,0.8-0.3,1,0l9.2,9.2c0.3,0.3,0.3,0.8,0,1c-0.3,0.3-0.8,0.3-1,0L0.4,1.4C0.1,1.1,0.1,0.6,0.4,0.4z" fill="#792626" />
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
