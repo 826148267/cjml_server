@@ -1,0 +1,20 @@
+logging:
+  file:
+    name: /gdbigdata/auditcspserver/gdbd-acs-log.txt
+  level:
+    edu.jnu: info
+
+swagger:
+  enable: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server-0.eureka-server:17000/eureka/,http://eureka-server-1.eureka-server:17000/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}.${server.port}
+
+spring:
+  jpa:
+    showSql: false
