@@ -1,0 +1,47 @@
+server:
+  port: 10001
+
+
+spring:
+  application:
+    name: access-real-server
+  datasource:
+    url: jdbc:mysql://gz-cynosdbmysql-grp-46q2jczh.sql.tencentcdb.com:25953/gdbigdata?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: 
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      idle-timeout: 60000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: DatebookHikariCP
+      maximum-pool-size: 5
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql=true:
+  profiles:
+    active: prod
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+osu:
+  base:
+    layer: 2
+  pk:
+    n: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639478951188622672759821331925301573705851986691148496213700986250957890517393289358385561785288167322397318922153533433218254597336292017070016072443266414433151
+    g: 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639478924373006812874627132777251577294159731732416855028914230803835003073865229211291608181539570988590463542089817060246152889828526393176876179575968402264600

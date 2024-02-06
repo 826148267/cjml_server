@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gdbd-ams-redis-config
+  labels:
+    app: gdbd-ams-redis
+data:
+  redis.conf: |-
+    dir /srv
+    port 6379
+    bind 0.0.0.0
+    appendonly yes
+    daemonize no
+    #protected-mode no
+    requirepass gdbd.access.redis
+    pidfile /srv/redis-6379.pid
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdbd-ams-redis-deployment
+  labels:
+    app: gdbd-ams-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gdbd-ams-redis
+  template:
+    metadata:
+      labels:
+        app: gdbd-ams-redis
+    spec:
+      containers:
+        - name: gdbd-ams-redis
+          image: 826148267/gdbigdata:redis-7.0.8-alpine3.17
+          command:
+            - "sh"
+            - "-c"
+            - "redis-server /usr/local/redis/redis.conf"
+          ports:
+            - containerPort: 6379
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 300
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          readinessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          volumeMounts:
+            - name: redis-conf
+              mountPath:  /usr/local/redis/redis.conf
+              subPath: redis.conf
+      volumes:
+        - name: redis-conf
+          configMap:
+            name: gdbd-ams-redis-config
+      imagePullSecrets:
+        - name: dockerhubcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gdbd-ams-redis-service
+spec:
+  ports:
+    - port: 6379
+      protocol: TCP
+      targetPort: 6379
+      nodePort: 30006
+  selector:
+    app: gdbd-ams-redis
+  type: NodePort
