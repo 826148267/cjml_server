@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-server
+spec:
+  type: ClusterIP
+  clusterIP: None
+  selector:
+    app: eureka-server
+  ports:
+    - port: 17000
+      targetPort: 17000
+      protocol: TCP
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: eureka-server
+spec:
+  selector:
+    matchLabels:
+      app: eureka-server
+  serviceName: eureka-server
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: eureka-server
+    spec:
+      restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:  # 满足其中一条即可
+                topologyKey:  kubernetes.io/hostname  # 同一拓扑域
+                labelSelector:
+                  matchExpressions: # 需要每条都满足
+                    - key: app
+                      values:
+                        - eureka-server
+                      operator: In
+              weight: 100
+      containers:
+        - name: eureka-server
+          image: 826148267/gdbigdata:gdbd-eureka-k8s-17000-1.0
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: 200Mi
+              cpu: 200m
+          livenessProbe:
+            httpGet:
+              port: 17000
+              path: /actuator/health
+            initialDelaySeconds: 120
+            periodSeconds: 60
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              port: 17000
+              path: /actuator/health
+            initialDelaySeconds: 120
+            periodSeconds: 60
+            timeoutSeconds: 10
+      imagePullSecrets:
+        - name: dockerhubcred
