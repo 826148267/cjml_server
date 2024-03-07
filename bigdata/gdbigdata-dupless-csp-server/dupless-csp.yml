@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dupless-csp-service
+spec:
+  type: NodePort
+  ports:
+    - port: 10080
+      nodePort: 30004
+  selector:
+    app: dupless-csp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dupless-csp
+  labels:
+    app: dupless-csp
+spec:
+  selector:
+    matchLabels:
+      app: dupless-csp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: dupless-csp
+    spec:
+      containers:
+        - name: dupless-csp
+          image: 826148267/gdbigdata:gdbd-dupless-csp-server-k8s-1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 10080
+      imagePullSecrets:
+        - name: dockerhubcred
+      restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                topologyKey: kubernetes.io/hostname  # 同一拓扑域
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - dupless-csp
+              weight: 100
