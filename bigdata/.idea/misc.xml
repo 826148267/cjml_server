@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/gdbd-user-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/gdbd-desktop/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/gdbd-user-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/gdbigdata-eureka-17200/pom.xml" />
+        <option value="$PROJECT_DIR$/gdbigdata-eureka-17400/pom.xml" />
+        <option value="$PROJECT_DIR$/gdbigdata-zuul-17001/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+</project>
