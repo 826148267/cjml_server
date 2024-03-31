@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gdbd-ars-service
+spec:
+  type: NodePort
+  ports:
+    - port: 10001
+      nodePort: 30008
+  selector:
+    app: gdbd-ars
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdbd-ars-deployment
+  labels:
+    app: gdbd-ars
+spec:
+  selector:
+    matchLabels:
+      app: gdbd-ars
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: gdbd-ars
+    spec:
+      containers:
+        - name: gdbd-ars
+          image: 826148267/gdbigdata:gdbd-ars-k8s-1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 10001
+      imagePullSecrets:
+        - name: dockerhubcred
+      restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                topologyKey: kubernetes.io/hostname  # 同一拓扑域
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - gdbd-ars
+              weight: 100
