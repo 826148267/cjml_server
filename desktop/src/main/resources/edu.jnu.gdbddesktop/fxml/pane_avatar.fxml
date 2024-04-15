@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.leewyatt.rxcontrols.controls.RXAvatar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="761.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" layoutX="41.0" layoutY="172.0" prefHeight="124.0" prefWidth="679.0" spacing="35.0" style="-fx-border-color: #F1F2F3;" AnchorPane.leftAnchor="41.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="130.0">
+         <children>
+            <RXAvatar>
+               <image>
+                  <Image url="@../scenery/1.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </RXAvatar>
+            <RXAvatar arcHeight="35.0" arcWidth="35.0" shapeType="SQUARE">
+               <image>
+                  <Image url="@../scenery/2.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </RXAvatar>
+            <RXAvatar prefHeight="87.0" prefWidth="100.0" shapeType="HEXAGON_H">
+               <image>
+                  <Image url="@../scenery/3.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </RXAvatar>
+            <RXAvatar prefHeight="100.0" prefWidth="100.0" shapeType="HEXAGON_V">
+               <image>
+                  <Image url="@../scenery/4.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </RXAvatar>
+            <RXAvatar shapeType="SQUARE">
+               <image>
+                  <Image url="@../scenery/3.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </RXAvatar>
+         </children>
+      </HBox>
+      <Label layoutX="214.0" layoutY="334.0" text="RXAvatar: 头像组件; &#10;会根据组件的大小, 自动缩放图片至合适的大小; &#10;并且根据Shape Type来显示出不同的形状;&#10;* Arc Width和Arc Height 属性只针对正方形有效;&#10;" textAlignment="CENTER" AnchorPane.leftAnchor="214.0" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="300.0" />
+   </children>
+</AnchorPane>

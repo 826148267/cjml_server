@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.leewyatt.rxcontrols.controls.RXTranslationButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import org.controlsfx.control.MaskerPane?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="edu.jnu.gdbddesktop.controller.core.FileUploadClientController"
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0"
+            prefWidth="761.0" style="-fx-background-color: white;" stylesheets="@../css/pane_media.css">
+    <children>
+        <RXTranslationButton fx:id="openBtn" layoutX="23.0" layoutY="17.0" onAction="#openFileAction"
+                             prefHeight="36.0"
+                             prefWidth="186.0" text="选择文件进行上传">
+            <graphic>
+                <ImageView fitHeight="25.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/openfile.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </RXTranslationButton>
+        <!--<MaskerPane fx:id="maskerPane" text="上传文件中" visible="true"/>-->
+        <ProgressBar fx:id="progressBar" layoutX="300" layoutY="35"/>
+    </children>
+
+</AnchorPane>
