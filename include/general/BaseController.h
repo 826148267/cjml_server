@@ -1,0 +1,8 @@
+//
+// Created by root on 4/21/24.
+//
+
+#ifndef CJML_SERVER_BASECONTROLLER_H
+#define CJML_SERVER_BASECONTROLLER_H
+
+#endif //CJML_SERVER_BASECONTROLLER_H
