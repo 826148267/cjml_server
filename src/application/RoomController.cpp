@@ -1,6 +1,6 @@
 //
 // Created by root on 4/19/24.
-#include "iostream"
+#include <iostream>
 #include "application/RoomController.h"
 
 XfResponse RoomController::inRoom(const string &body) const {
@@ -17,7 +17,6 @@ XfResponse RoomController::outRoom(const string &body) const {
 }
 
 RoomController::RoomController() : BaseController() {
-    cout << "RoomController被控制器管理类实例化了" << endl;
     addFunction("RoomController/inRoom", [this](const string& body){ return this->inRoom(body);});
     addFunction("RoomController/outRoom", [this](const string& body){ return this->outRoom(body);});
 }

@@ -38,7 +38,7 @@ XfRequest XfProtocol::getRequest(struct bufferevent *bev) {
     // 将报文封装到请求体中
 
     if (vec.size() != 3) {
-        return {len, "", "", ""};
+        return {0, "", "", ""};
     }
     return {len, vec[0], vec[1], vec[2]};
 }
@@ -76,6 +76,8 @@ size_t XfProtocol::getContextLen(struct bufferevent *bev) {
     return len;
 }
 
-void XfProtocol::sendResponse(XfResponse& res) {
+void XfProtocol::sendResponse(struct bufferevent* bev ,XfResponse& res) {
     cout << "在发送响应报文中..." << endl;
+    bufferevent_write(bev, &res.getBody(), sizeof(res.getBody()));
+    cout << "响应报文发送完毕！" << endl;
 }

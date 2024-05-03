@@ -32,9 +32,6 @@ static void listener_cb(struct evconnlistener *listener, evutil_socket_t fd,
 static void router_cb(struct bufferevent *bev, void *user_data);
 
 int main() {
-    cout << "dfv" <<endl;
-    cout << "dfv" <<endl;
-
     struct event_base *base = event_base_new();
     struct sockaddr_in sin = {0};
     // 服务器端口号
@@ -90,10 +87,10 @@ void router_cb(struct bufferevent *bev, void *user_data) {
     vector<string> vec;
     boost::split(vec, cmd, boost::is_any_of("/"));
     if (vec.empty()) return;
-    shared_ptr<BaseController> controller = ControllerFactory::getInstance().getSingleton(vec[0]);
+    shared_ptr<BaseController> controller = ControllerFactory::getController(vec[0]);
     if (controller != nullptr) {
         XfResponse res = controller->callFunction(cmd, req.getBody());
-        XfProtocol::sendResponse(res);
+        XfProtocol::sendResponse(bev, res);
     } else {
         cout << "未能初始化控制器：" << vec[0] << "已丢弃此请求。" << endl;
     }

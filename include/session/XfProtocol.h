@@ -22,7 +22,7 @@ public:
      * 发送响应报文到客户端
      * @param response
      */
-    static void sendResponse(XfResponse& response);
+    static void sendResponse(struct bufferevent *bev, XfResponse& response);
 
 private:
     static size_t getContextLen(struct bufferevent *bev);
