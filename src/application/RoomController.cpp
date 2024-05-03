@@ -21,4 +21,3 @@ RoomController::RoomController() : BaseController() {
     addFunction("RoomController/inRoom", [this](const string& body){ return this->inRoom(body);});
     addFunction("RoomController/outRoom", [this](const string& body){ return this->outRoom(body);});
 }
-

@@ -1,0 +1,10 @@
+{
+    "commentTranslate.targetLanguage": "zh-CN",
+    "files.associations": {
+        "ostream": "cpp"
+    },
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/include/**"
+    ]
+}
