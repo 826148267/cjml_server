@@ -6,8 +6,8 @@
 #define CJML_SERVER_CONTROLLERFACTORY_H
 
 #include <memory>
-#include "string"
-#include "functional"
+#include <string>
+#include <functional>
 #include "BaseController.h"
 
 using namespace std;
@@ -17,7 +17,17 @@ using namespace std;
  */
 class ControllerFactory {
 public:
+    /**
+     * 单例模式获取工厂类
+     * @return
+     */
     static ControllerFactory& getInstance();
+
+    /**
+     * 获取所有的控制器实例
+     * @return
+     */
+    map<string, shared_ptr<BaseController>> getInstances();
 
     /**
      * 控制器将自身的实例化能力提供给本类
@@ -39,7 +49,7 @@ public:
 private:
     ControllerFactory(){};
     // 控制器实例表
-    static map<string, shared_ptr<BaseController>> instances;
+    map<string, shared_ptr<BaseController>> instances;
 };
 
 #define REGISTER_CONTROLLER(name, className) \

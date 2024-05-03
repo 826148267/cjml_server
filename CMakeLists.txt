@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.29)
 project(cjml_server)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -11,6 +11,11 @@ link_directories(/usr/local/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# 设置为调试模式
+set(CMAKE_BUILD_TYPE Debug)
+# -Wall开启所有警告 -ggdb告诉编译器生成适用于 GDB 调试器的调试信息
+add_compile_options(-Wall -ggdb)
 
 add_executable(cjml_server src/main.cpp
         src/session/XfProtocol.cpp

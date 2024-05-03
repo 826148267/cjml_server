@@ -3,20 +3,36 @@
 //
 
 #include "general/ControllerFactory.h"
+#include <mutex>
+#include <iostream>
+#include "application/RoomController.h"
 
-map<string, shared_ptr<BaseController>> ControllerFactory::instances;
+// 互斥锁
+mutex mtx;
 
-ControllerFactory &ControllerFactory::getInstance() {
+ControllerFactory &ControllerFactory::getInstance() 
+{
     static ControllerFactory factory;
     return factory;
 }
 
-void ControllerFactory::registerController(const string &className, const shared_ptr<BaseController>& instance) {
-    instances.emplace(className, instance);
+
+map<string, shared_ptr<BaseController> > ControllerFactory::getInstances()
+{
+    static map<string, shared_ptr<BaseController> > instances;
+    return instances;
 }
 
-shared_ptr<BaseController> ControllerFactory::getSingleton(const string& className) {
+shared_ptr<BaseController> ControllerFactory::getSingleton(const string &className)
+{
     if (instances.find(className) != instances.end()) {
         return instances[className];
     } else return nullptr;
+}
+
+void ControllerFactory::registerController(const string &className, const shared_ptr<BaseController> &instance)
+{
+    // 互斥锁，防止并发插入使map处于未知状态
+    lock_guard<mutex> lock(mtx);
+    getInstances().insert({className, instance});
 }

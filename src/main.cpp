@@ -2,8 +2,8 @@
 #include <csignal>
 #include <event2/event.h>
 #include <event2/listener.h>
-#include <session/XfProtocol.h>
-#include <session/XfRequest.h>
+#include "session/XfProtocol.h"
+#include "session/XfRequest.h"
 #include <iostream>
 #include <vector>
 #include <boost/algorithm/string/split.hpp>
