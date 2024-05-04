@@ -18,21 +18,24 @@ using namespace std;
 class ControllerFactory {
 public:
     /**
-     * 单例模式获取工厂类
-     * @return
+     * 获得工厂类的实例
      */
     static ControllerFactory& getInstance();
 
     /**
-     * 获取所有的控制器实例
-     * @return
+     * 获得实例的映射表
      */
-    map<string, shared_ptr<BaseController>> getInstances();
+    static map<string, shared_ptr<BaseController> >& getInstances();
+
+    /**
+     * 获得控制器实例（单例）
+     */
+    static shared_ptr<BaseController> getController(const string& name);
 
     /**
      * 控制器将自身的实例化能力提供给本类
      * @param className
-     * @param lambda
+     * @param instance
      */
     void registerController(const string& className, const shared_ptr<BaseController>& instance);
 
@@ -48,8 +51,6 @@ public:
     ControllerFactory(ControllerFactory&&) = delete;
 private:
     ControllerFactory(){};
-    // 控制器实例表
-    map<string, shared_ptr<BaseController>> instances;
 };
 
 #define REGISTER_CONTROLLER(name, className) \

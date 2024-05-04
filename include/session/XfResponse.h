@@ -25,6 +25,10 @@ private:
 public:
     XfResponse();
     XfResponse(XfStatus status, string body);
+    const string& getBody() const;
+    void setBody(const string& body);
+    int getStatusCode() const;
+    void setStatusCode(int statusCode);
 };
 
 #endif //CJML_SERVER_XFRESPONSE_H
