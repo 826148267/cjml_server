@@ -1,7 +1,8 @@
 {
     "commentTranslate.targetLanguage": "zh-CN",
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "*.tcc": "cpp"
     },
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/**",

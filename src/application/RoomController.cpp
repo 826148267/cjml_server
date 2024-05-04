@@ -7,13 +7,13 @@ XfResponse RoomController::inRoom(const string &body) const {
     cout << "进入 inRoom 函数体" << endl;
     cout << "this:" << this << endl;
     cout << "body:" << body << endl;
-    return {XfStatus::OK, "inRoom 函数计算结果"};
+    return {XfStatus::OK, "inRoom 函数计算结果:"+body};
 }
 
 XfResponse RoomController::outRoom(const string &body) const {
     cout << "进入 outRoom 函数体" << endl;
     cout << "body:" << body << endl;
-    return {XfStatus::OK, "outRoom 函数计算结果"};
+    return {XfStatus::OK, "outRoom 函数计算结果:"+body};
 }
 
 RoomController::RoomController() : BaseController() {
