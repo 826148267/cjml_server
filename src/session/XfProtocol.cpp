@@ -78,6 +78,8 @@ size_t XfProtocol::getContextLen(struct bufferevent *bev) {
 
 void XfProtocol::sendResponse(struct bufferevent* bev ,XfResponse& res) {
     cout << "在发送响应报文中..." << endl;
-    bufferevent_write(bev, &res.getBody(), sizeof(res.getBody()));
+    cout << res.getBody().c_str() << endl;
+    // 由于char*是一个指针，所以sizeof(res.getBody().c_str())只会传前八个字节
+    bufferevent_write(bev, res.getBody().c_str(), sizeof(res.getBody()));
     cout << "响应报文发送完毕！" << endl;
 }
