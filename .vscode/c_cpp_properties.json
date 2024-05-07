@@ -3,8 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include/**",
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/snap/**",
+                "${workspaceFolder}/cjml/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",

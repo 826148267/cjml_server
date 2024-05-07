@@ -2,15 +2,18 @@
 #include <csignal>
 #include <event2/event.h>
 #include <event2/listener.h>
-#include "session/XfProtocol.h"
-#include "session/XfRequest.h"
+#include <cjml/session/XfProtocol.h>
+#include <cjml/session/XfRequest.h>
+#include <cjml/general/BaseController.h>
+#include <cjml/general/ControllerFactory.h>
+#include <cjml/session/XfResponse.h>
 #include <iostream>
 #include <vector>
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
-#include "application/RoomController.h"
 
 using namespace std;
+using namespace cjml;
 
 /**
  * 接收到监听请求之后，根据传输内容中的指令进行路由.

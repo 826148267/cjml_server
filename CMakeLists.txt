@@ -1,34 +1,25 @@
-cmake_minimum_required(VERSION 3.29)
-project(cjml_server)
+cmake_minimum_required(VERSION 3.22)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# 默认为发布模式
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
-set(OPENSSL_ROOT_DIR "/usr/local/openssl")
+# set(OPENSSL_ROOT_DIR "/usr/local/openssl")
 
-include_directories(include src /usr/include)
-link_directories(/usr/local/lib)
+# # 设置为调试模式
+# set(CMAKE_BUILD_TYPE Debug)
+# # -Wall开启所有警告 -ggdb告诉编译器生成适用于 GDB 调试器的调试信息
+# add_compile_options(-Wall -ggdb)
 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+project(cjml_server VERSION 1.0
+                DESCRIPTION "超级玛丽服务器"
+                LANGUAGES CXX)
 
-# 设置为调试模式
-set(CMAKE_BUILD_TYPE Debug)
-# -Wall开启所有警告 -ggdb告诉编译器生成适用于 GDB 调试器的调试信息
-add_compile_options(-Wall -ggdb)
+add_subdirectory(cjml)
 
-add_executable(cjml_server src/main.cpp
-        src/session/XfProtocol.cpp
-        src/application/RoomController.cpp
-        include/application/RoomController.h
-        src/session/XfRequest.cpp
-        include/session/XfRequest.h
-        src/session/XfResponse.cpp
-        include/session/XfResponse.h
-        include/general/BaseController.h
-        src/general/BaseController.cpp
-        src/general/ControllerFactory.cpp
-        include/general/ControllerFactory.h
-)
-
-target_link_libraries(cjml_server event)
+# 制作程序入口
+add_executable(cjml_server main.cc)
+target_link_libraries(cjml_server PRIVATE cjml event)
