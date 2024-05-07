@@ -8,9 +8,11 @@
 #include <memory>
 #include <string>
 #include <functional>
-#include "BaseController.h"
+#include <cjml/general/BaseController.h>
 
 using namespace std;
+
+namespace cjml {
 
 /**
  * 单例工厂
@@ -62,4 +64,5 @@ private:
         }; \
         static className##Registrar registrar; \
     }
+}
 #endif //CJML_SERVER_CONTROLLERFACTORY_H

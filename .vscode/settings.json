@@ -6,6 +6,7 @@
     },
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/**",
-        "${workspaceFolder}/include/**"
+        "${workspaceFolder}/include/**",
+        "/snap/**"
     ]
 }
