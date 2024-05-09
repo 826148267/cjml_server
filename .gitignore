@@ -1,2 +1,4 @@
 .history/
 build/
+cjml/proto/*.pb.h
+cjml/proto/*.pb.cc
