@@ -7,12 +7,12 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# set(OPENSSL_ROOT_DIR "/usr/local/openssl")
-
-# # 设置为调试模式
-# set(CMAKE_BUILD_TYPE Debug)
-# # -Wall开启所有警告 -ggdb告诉编译器生成适用于 GDB 调试器的调试信息
-# add_compile_options(-Wall -ggdb)
+# 将cmake文件夹添加到cmake的模块搜索路径
+set(
+    CMAKE_MODULE_PATH 
+    ${CMAKE_CURRENT_LIST_DIR}/cmake 
+    ${CMAKE_MODULE_PATH} 
+)
 
 project(cjml_server VERSION 1.0
                 DESCRIPTION "超级玛丽服务器"

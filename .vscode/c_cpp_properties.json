@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/snap/**",
-                "${workspaceFolder}/cjml/include/**"
+                "${workspaceFolder}/cjml/include/**",
+                "/snap/protobuf/current/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",

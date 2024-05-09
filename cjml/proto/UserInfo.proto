@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package cjml;
+
+message UserInfo
+{
+    int64 uId = 1;
+    string uName = 2;
+    string pwd = 3;
+}
