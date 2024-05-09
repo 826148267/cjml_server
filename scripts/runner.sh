@@ -26,4 +26,4 @@ if grep -q "100% tests passed" ctest.log; then
     ./cjml_server
 else
     echo "抱歉，单元测试未通过。请查看日志文件ctest.log，排查原因～"
-fi
+fi 
