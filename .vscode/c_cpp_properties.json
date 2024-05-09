@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/cjml/include/**",
-                "/snap/protobuf/current/include/**"
+                "${workspaceFolder}/build/_deps/googletest-src/googletest/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",
