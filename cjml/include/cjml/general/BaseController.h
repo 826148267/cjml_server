@@ -9,7 +9,9 @@
 #include <functional>
 #include <map>
 #include <iostream>
-#include <cjml/session/XfResponse.h>
+#include <XfResponse.pb.h>
+
+
 
 using namespace std;
 

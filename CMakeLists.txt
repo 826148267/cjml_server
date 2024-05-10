@@ -14,38 +14,16 @@ set(
     ${CMAKE_MODULE_PATH} 
 )
 
+# 只采用新行为
+cmake_policy(SET CMP0135 NEW)
+
 project(cjml_server VERSION 1.0
                 DESCRIPTION "超级玛丽服务器"
                 LANGUAGES CXX)
 
 add_subdirectory(cjml)
+add_subdirectory(tests)
 
 # 制作程序入口
 add_executable(cjml_server main.cc)
-target_link_libraries(cjml_server PRIVATE cjml event)
-
-# 引入Google test测试框架
-set(DOWNLOAD_EXTRACT_TIMESTAMP true)
-
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
-)
-# For Windows: Prevent overriding the parent project's compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-
-enable_testing()
-
-add_executable(
-  hello_test
-  tests/hello_test.cc
-)
-target_link_libraries(
-  hello_test
-  GTest::gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(hello_test)
+target_link_libraries(cjml_server PUBLIC cjml event)

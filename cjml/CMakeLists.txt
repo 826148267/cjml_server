@@ -1,4 +1,4 @@
-# 添加头文件是为了在IDE去出现提示，不添加也能编译通过
+# 添加头文件是为了在IDE去出现提示，不添加也能编译通过.file中读取的变量不会跨文件生效
 file(GLOB_RECURSE srcs CONFIGURE_DEPENDS src/*.cc include/*.h proto/**.h proto/**.cc)
 add_library(cjml STATIC ${srcs})
 

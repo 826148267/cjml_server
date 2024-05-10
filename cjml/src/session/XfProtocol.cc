@@ -80,9 +80,10 @@ namespace cjml
 
     void XfProtocol::sendResponse(bufferevent* bev ,XfResponse& res) {
         cout << "在发送响应报文中..." << endl;
-        cout << res.getBody() << endl;
+        string context = res.SerializeAsString();
+        cout << context << endl;
         // 由于char*是一个指针，所以sizeof(res.getBody().c_str())只会传前八个字节
-        bufferevent_write(bev, res.getBody().c_str(), res.getBody().size());
+        bufferevent_write(bev, context.c_str(), context.size());
         cout << "响应报文发送完毕！" << endl;
     }
 } // namespace cjml

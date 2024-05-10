@@ -6,7 +6,6 @@
 #include <cjml/session/XfRequest.h>
 #include <cjml/general/BaseController.h>
 #include <cjml/general/ControllerFactory.h>
-#include <cjml/session/XfResponse.h>
 #include <iostream>
 #include <vector>
 #include <boost/algorithm/string/split.hpp>

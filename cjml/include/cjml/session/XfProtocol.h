@@ -7,7 +7,8 @@
 
 
 #include <cjml/session/XfRequest.h>
-#include <cjml/session/XfResponse.h>
+#include <XfResponse.pb.h>
+
 
 namespace cjml {
     class XfProtocol {

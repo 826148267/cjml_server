@@ -9,19 +9,21 @@ namespace cjml {
         cout << "进入 inRoom 函数体" << endl;
         cout << "this:" << this << endl;
         cout << "body:" << body << endl;
-        UserInfo userInfo;
-        userInfo.set_uid(826148267L);
-        userInfo.set_uname("zeavan");
-        userInfo.set_pwd("448812588");
-        string result;
-        userInfo.SerializeToString(&result);
-        return {XfStatus::OK, result};
+        string result = "448812588";
+        XfResponse res;
+        res.set_state(200);
+        res.set_body(result);
+        return res;
     }
 
     XfResponse RoomController::outRoom(const string &body) const {
         cout << "进入 outRoom 函数体" << endl;
         cout << "body:" << body << endl;
-        return {XfStatus::OK, body};
+        string result = "448812588";
+        XfResponse res;
+        res.set_state(200);
+        res.set_body(result);
+        return res;
     }
 
     RoomController::RoomController() : BaseController() {

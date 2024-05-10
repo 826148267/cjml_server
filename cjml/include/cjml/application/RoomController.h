@@ -4,7 +4,6 @@
 #ifndef CJML_SERVER_ROOMCONTROLLER_H
 #define CJML_SERVER_ROOMCONTROLLER_H
 #include <string>
-#include <cjml/session/XfResponse.h>
 #include <cjml/general/BaseController.h>
 #include <cjml/general/ControllerFactory.h>
 
