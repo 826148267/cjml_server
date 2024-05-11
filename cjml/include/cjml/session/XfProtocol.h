@@ -6,7 +6,7 @@
 #define CJML_SERVER_XFPROTOCOL_H
 
 
-#include <cjml/session/XfRequest.h>
+#include <XfRequest.pb.h>
 #include <XfResponse.pb.h>
 
 
@@ -15,6 +15,8 @@ namespace cjml {
     public:
         /**
          * 获取缓冲区中的请求
+         * 如果len字段为0，则说明读取失败
+         * 如果len字段不为0，则说明读取成功
          * @param bev
          * @return
          */

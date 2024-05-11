@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package cjml;
+
+message XfRequest 
+{
+    uint32 len = 1;
+    string cmd = 2;
+    string header = 3;
+    string body = 4;
+}

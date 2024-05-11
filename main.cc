@@ -3,7 +3,7 @@
 #include <event2/event.h>
 #include <event2/listener.h>
 #include <cjml/session/XfProtocol.h>
-#include <cjml/session/XfRequest.h>
+#include <XfRequest.pb.h>
 #include <cjml/general/BaseController.h>
 #include <cjml/general/ControllerFactory.h>
 #include <iostream>
@@ -84,14 +84,14 @@ void listener_cb(struct evconnlistener *listener, evutil_socket_t fd,
 
 void router_cb(struct bufferevent *bev, void *user_data) {
     XfRequest req = XfProtocol::getRequest(bev);
-    const string& cmd = req.getCmd();
+    const string& cmd = req.cmd();
     cout << "解析得到指令：" << cmd << endl;
     vector<string> vec;
     boost::split(vec, cmd, boost::is_any_of("/"));
     if (vec.empty()) return;
     shared_ptr<BaseController> controller = ControllerFactory::getController(vec[0]);
     if (controller != nullptr) {
-        XfResponse res = controller->callFunction(cmd, req.getBody());
+        XfResponse res = controller->callFunction(cmd, req.body());
         XfProtocol::sendResponse(bev, res);
     } else {
         cout << "未能初始化控制器：" << vec[0] << "已丢弃此请求。" << endl;
