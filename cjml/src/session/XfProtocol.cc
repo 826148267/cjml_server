@@ -15,11 +15,9 @@ namespace cjml
 {
     XfRequest XfProtocol::getRequest(struct bufferevent *bev) {
         XfRequest request;
-        request.set_len(0);
         string content;
         // 读取消息长度
         size_t len = getContextLen(bev);
-        cout << "长度：" << len << endl;
 
         if (len <= 0 || len >= 100000)
         {
@@ -31,8 +29,7 @@ namespace cjml
         while (true)
         {
             size_t n = bufferevent_read(bev, buf, sizeof(buf));
-            cout << "buf：" << buf[0] << endl;
-            if (buf[0] == '\n')
+            if (buf[0] == '$')
             {
                 break;
             }
@@ -43,20 +40,26 @@ namespace cjml
             }
         }
 
-        cout << "报文：" << content << endl;
-        cout << "长度：" << len << endl;
-
         if (len != 0)
         {
-            request.set_len(0);
             return request;
         }
 
-        request.ParseFromString(content);
+        cout << "Xf协议读取到的数据内容为：" << content << endl;
+        try
+        {
+            request.ParseFromString(content);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << endl;
+            return request;
+        }        
         return request;
     }
 
-    size_t XfProtocol::getContextLen(struct bufferevent *bev) {
+    size_t XfProtocol::getContextLen(struct bufferevent *bev) 
+    {
         char buf[4]; // 缓冲区，用于存储读取的数据
         size_t n; // 读取的字节数
         size_t len = 0;
@@ -83,12 +86,11 @@ namespace cjml
         return len;
     }
 
-    void XfProtocol::sendResponse(bufferevent* bev ,XfResponse& res) {
-        cout << "在发送响应报文中..." << endl;
+    void XfProtocol::sendResponse(bufferevent* bev ,XfResponse& res) 
+    {
         string context = res.SerializeAsString();
         cout << context << endl;
         // 由于char*是一个指针，所以sizeof(res.getBody().c_str())只会传前八个字节
         bufferevent_write(bev, context.c_str(), context.size());
-        cout << "响应报文发送完毕！" << endl;
     }
 } // namespace cjml

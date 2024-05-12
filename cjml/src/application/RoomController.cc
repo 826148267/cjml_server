@@ -6,13 +6,29 @@
 
 namespace cjml {
     XfResponse RoomController::inRoom(const string &body) const {
-        cout << "进入 inRoom 函数体" << endl;
-        cout << "this:" << this << endl;
-        cout << "body:" << body << endl;
-        string result = "448812588";
         XfResponse res;
-        res.set_state(200);
-        res.set_body(result);
+        UserInfo userInfo;
+        try
+        {
+            userInfo.ParseFromString(body);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << endl;
+            res.set_state(500);
+            res.set_state_msg("服务器内部错误");
+            return res;
+        }
+        if (userInfo.uname() == "zeavan" && 
+            userInfo.pwd() == "448812588" &&
+            userInfo.uid() == 826148267L)
+        {
+            res.set_state(200);
+            res.set_state_msg("登陆成功");
+            return res;
+        } 
+        res.set_state(400);
+        res.set_state_msg("登陆失败,口令错误");
         return res;
     }
 

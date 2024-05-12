@@ -5,6 +5,6 @@ package cjml;
 message UserInfo
 {
     uint64 uId = 1;
-    string uName = 2;
-    string pwd = 3;
+    bytes uName = 2;
+    bytes pwd = 3;
 }
