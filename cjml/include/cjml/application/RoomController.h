@@ -4,8 +4,9 @@
 #ifndef CJML_SERVER_ROOMCONTROLLER_H
 #define CJML_SERVER_ROOMCONTROLLER_H
 #include <string>
-#include <cjml/general/BaseController.h>
-#include <cjml/general/ControllerFactory.h>
+#include "cjml/general/BaseController.h"
+#include "cjml/general/Factory.hpp"
+#include "UserService.h"
 
 namespace cjml {
     class RoomController: public BaseController{
@@ -16,7 +17,10 @@ namespace cjml {
         XfResponse outRoom(const string& body) const;
 
         RoomController();
+
+        virtual ~RoomController();
+    private:
+        UserService* userService;
     };
-    REGISTER_CONTROLLER("RoomController", RoomController);
 }
 #endif //CJML_SERVER_ROOMCONTROLLER_H

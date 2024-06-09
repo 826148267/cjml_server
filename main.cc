@@ -1,15 +1,9 @@
 #include <event2/bufferevent.h>
-#include <csignal>
 #include <event2/event.h>
 #include <event2/listener.h>
-#include <cjml/session/XfProtocol.h>
-#include <XfRequest.pb.h>
-#include <cjml/general/BaseController.h>
-#include <cjml/general/ControllerFactory.h>
+#include <cjml/Handler.h>
 #include <iostream>
 #include <vector>
-#include <boost/algorithm/string/split.hpp>
-#include <boost/algorithm/string/classification.hpp>
 
 using namespace std;
 using namespace cjml;
@@ -68,7 +62,8 @@ int main() {
 }
 
 void listener_cb(struct evconnlistener *listener, evutil_socket_t fd,
-               struct sockaddr *sa, int socklen, void *user_data) {
+               struct sockaddr *sa, int socklen, void *user_data) 
+{
     auto *base = static_cast<event_base *>(user_data);
     struct bufferevent *bev;
 
@@ -82,24 +77,8 @@ void listener_cb(struct evconnlistener *listener, evutil_socket_t fd,
     bufferevent_enable(bev, EV_READ);
 }
 
-void router_cb(struct bufferevent *bev, void *user_data) {
-    XfRequest req = XfProtocol::getRequest(bev);
-    const string& cmd = req.cmd();
-    vector<string> vec;
-    boost::split(vec, cmd, boost::is_any_of("/"));
-    XfResponse res;
-    if (vec.size() == 2) {
-        shared_ptr<BaseController> controller = ControllerFactory::getController(vec[0]);
-        if (controller != nullptr) {
-            res = controller->callFunction(cmd, req.body());
-        } else {
-            res.set_state(404);
-            res.set_state_msg("未能初始化的控制器："+vec[0]);
-        }
-    } else {
-        res.set_state(404);
-        res.set_state_msg("未能识别的指令");
-    }
-    XfProtocol::sendResponse(bev, res);
-    cout << "请求处理完毕" << endl;
+void router_cb(struct bufferevent *bev, void *user_data) 
+{
+    Handler::handle(bev, user_data);
+    // Handler::hadler();
 }

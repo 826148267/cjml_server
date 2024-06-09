@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/cjml/include/**",
-                "${workspaceFolder}/build/_deps/googletest-src/googletest/include"
+                "/usr/local/include/**",
+                "/usr/include/mysql",
+                "${workspaceFolder}/cjml/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",

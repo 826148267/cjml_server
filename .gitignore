@@ -1,5 +1,6 @@
 .history/
 build/
-cjml/proto/*.pb.h
-cjml/proto/*.pb.cc
+build_test/
+cjml/include/cjml/proto/*.pb.h
+cjml/include/cjml/proto/*.pb.cc
 tests/

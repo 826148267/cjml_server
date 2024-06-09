@@ -11,7 +11,7 @@ endif()
 set(
     CMAKE_MODULE_PATH 
     ${CMAKE_CURRENT_LIST_DIR}/cmake 
-    ${CMAKE_MODULE_PATH} 
+    ${CMAKE_MODULE_PATH}
 )
 
 # 只采用新行为
@@ -22,8 +22,8 @@ project(cjml_server VERSION 1.0
                 LANGUAGES CXX)
 
 add_subdirectory(cjml)
-add_subdirectory(tests)
 
-# 制作程序入口
+# 添加程序入口
 add_executable(cjml_server main.cc)
-target_link_libraries(cjml_server PUBLIC cjml event)
+# 链接cjml库
+target_link_libraries(cjml_server PUBLIC cjml)

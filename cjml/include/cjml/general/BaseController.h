@@ -9,7 +9,7 @@
 #include <functional>
 #include <map>
 #include <iostream>
-#include <XfResponse.pb.h>
+#include "cjml/proto/XfResponse.pb.h"
 
 
 

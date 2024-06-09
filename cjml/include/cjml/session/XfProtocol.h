@@ -6,8 +6,10 @@
 #define CJML_SERVER_XFPROTOCOL_H
 
 
-#include <XfRequest.pb.h>
-#include <XfResponse.pb.h>
+#include "cjml/proto/XfRequest.pb.h"
+#include "cjml/proto/XfResponse.pb.h"
+#include <event2/bufferevent.h>
+#include <event2/buffer.h>
 
 
 namespace cjml {

@@ -1,10 +1,9 @@
 //
 // Created by root on 4/19/24.
 //
-#include <event2/bufferevent.h>
-#include <event2/buffer.h>
 #include <iostream>
-#include <cjml/session/XfProtocol.h>
+#include "cjml/proto/XfRequest.pb.h"
+#include "cjml/session/XfProtocol.h"
 #include <boost/algorithm/string.hpp>
 #include <vector>
 #include <cstdlib>
@@ -80,7 +79,7 @@ namespace cjml
         catch(const std::exception& e)
         {
             cout << "数据报长度字段为" << buf << "，非法字段格式，格式应如0001、9999等" << endl;
-            std::cerr << "Exception: " << e.what() << '\n';
+            cerr << "Exception: " << e.what() << '\n';
             return 0;
         }
         return len;
