@@ -26,3 +26,4 @@ module edu.jnu.gdbddesktop {
     exports edu.jnu.gdbddesktop;
     exports edu.jnu.gdbddesktop.entity;
 }
+
