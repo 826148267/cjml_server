@@ -1,0 +1,14 @@
+spring:
+  redis:
+    database: 0
+    host: 
+    port: 30006
+    password: 
+
+swagger:
+  enable: true
+
+access:
+  real:
+    server:
+      url: http://localhost:10001
