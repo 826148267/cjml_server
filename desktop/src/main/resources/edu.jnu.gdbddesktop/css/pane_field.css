@@ -1,0 +1,38 @@
+#login-title{
+    -fx-font-size: 36.0px;
+    -fx-font-family: "Arial Black";
+    -fx-fill: #8ec9f4;
+    -fx-effect: innershadow( three-pass-box , rgba(0.0,0.0,0.0,0.7) , 6.0, 0.0 , 0.0 , 2.0 );
+}
+.label-field{
+    -fx-font-size:20.0px;
+    -fx-font-weight:bold;
+    -fx-text-fill:#333333;
+    -fx-effect:dropshadow(gaussian,rgba(255.0,255.0,255.0,0.5),0.0,0.0,0.0,1.0);
+}
+
+.rx-text-field-copy .tf-button-shape {
+    -fx-background-color: #3ebaff;
+    -fx-pref-width: 18;
+    -fx-pref-height: 18;
+    -fx-shape: 'M0.2,2.2h9.6v9.6H0.2V2.2zM1.5,0.2h9.6v1H1.5V0.2z M11.1,0.2h1v11h-1V0.2z';
+}
+
+.rx-text-field-copy .tf-button:pressed .tf-button-shape {
+    -fx-background-color: #007aed;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.rx-text-field-enter .tf-button-shape {
+    -fx-background-color: #3399ed;
+    -fx-pref-width: 18;
+    -fx-pref-height: 18;
+    -fx-shape: 'M266.7,133.3l-22.2,22.23v-22.2H266.7z M244.41,19.5l22.2-13.6v149.7h-244l36.2-22.2h185.6V19.5z M266.7,133.3 l-22.2,22.2v-22.2H266.7z M244.4,5.9h22.2v149.7h-244l36.2-22.2h185.6V6.0z M0,144.4l111.1-55.6V200L0,144.4z';
+}
+
+.rx-text-field-enter .tf-button:pressed .tf-button-shape {
+    -fx-background-color: #007aed;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
