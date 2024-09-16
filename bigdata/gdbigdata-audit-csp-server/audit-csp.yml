@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: audit-csp-service
+spec:
+  type: NodePort
+  ports:
+    - port: 10090
+      nodePort: 30005
+  selector:
+    app: audit-csp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audit-csp
+  labels:
+    app: audit-csp
+spec:
+  selector:
+    matchLabels:
+      app: audit-csp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: audit-csp
+    spec:
+      containers:
+        - name: audit-csp
+          image: 826148267/gdbigdata:gdbd-audit-csp-server-k8s-1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 10090
+      imagePullSecrets:
+        - name: dockerhubcred
+      restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                topologyKey: kubernetes.io/hostname  # 同一拓扑域
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - audit-csp
+              weight: 100
