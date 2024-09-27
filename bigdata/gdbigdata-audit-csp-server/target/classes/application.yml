@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: audit-csp
+  profiles:
+    active: prod
+  datasource:
+    url: jdbc:mysql://
+    username: root
+    password: yyyyyyyyyyy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      idle-timeout: 60000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: DatebookHikariCP
+      maximum-pool-size: 5
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 3000MB
+      max-request-size: 3000MB
+
+server:
+  port: 10090
+  tomcat:
+    max-http-form-post-size: 100MB
+
+aliyun:
+  oss:
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    access-key-id: .........
+    access-key-secret: .........
