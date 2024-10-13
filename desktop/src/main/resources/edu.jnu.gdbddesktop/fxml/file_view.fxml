@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="761.0"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.jnu.gdbddesktop.controller.core.FileViewController">
+    <children>
+        <TableView fx:id="filesTable" prefHeight="305.0" prefWidth="761.0">
+            <columns>
+                <TableColumn fx:id="fileId" onEditStart="#fileIdOnEdit" prefWidth="190.25" text="文件id" />
+                <TableColumn fx:id="fileName" onEditStart="#fileNameOnEdit" prefWidth="190.25" text="文件名" />
+                <TableColumn fx:id="isFirstSaver" onEditStart="#firstSaverOnEdit" prefWidth="190.25" text="是否为第一个上传文件的用户" />
+                <TableColumn fx:id="signFileId" onEditStart="#signFileIdOnEdit" prefWidth="190.25" text="签名文件id" />
+                <TableColumn fx:id="auditParamsFileId" onEditStart="#auditParamsFileIdOnEdit" prefWidth="190.25" text="审计文件id" />
+            </columns>
+        </TableView>
+        <Button fx:id="refreshBtn" layoutX="340.9" layoutY="305" onAction="#refresh" prefWidth="79.2" styleClass="cf-success-but" text="刷新" />
+    </children>
+</AnchorPane>
