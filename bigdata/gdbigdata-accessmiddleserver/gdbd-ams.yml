@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdbd-ams-deployment
+spec:
+  selector:
+    matchLabels:
+      app: gdbd-ams
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: gdbd-ams
+    spec:
+      containers:
+        - name: gdbd-ams
+          image: 826148267/gdbigdata:gdbd-ams-k8s-1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 10002
+      imagePullSecrets:
+        - name: dockerhubcred
+      restartPolicy: Always
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                topologyKey: kubernetes.io/hostname  # 同一拓扑域
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - gdbd-ams
+              weight: 100
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gdbd-ams-service
+spec:
+  type: NodePort
+  ports:
+    - port: 10002
+      nodePort: 30007
+  selector:
+    app: gdbd-ams
