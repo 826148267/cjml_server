@@ -1,0 +1,37 @@
+server:
+  port: 10003
+
+ribbon:
+  ReadTimeout: 15000
+
+spring:
+  application:
+    name: user-auth
+  cache:
+    type: redis
+    redis:
+      time-to-live: 300000
+  datasource:
+    url: jdbc:mysql://gz-cynosdbmysql-grp-46q2jczh.sql.tencentcdb.com:25953/gdbd_auth?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: 
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      idle-timeout: 60000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: DatebookHikariCP
+      maximum-pool-size: 5
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql=true:
+  profiles:
+    active: dev

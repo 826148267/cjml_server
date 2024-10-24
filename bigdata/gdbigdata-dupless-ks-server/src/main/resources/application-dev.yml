@@ -1,0 +1,2 @@
+swagger:
+  enable: true

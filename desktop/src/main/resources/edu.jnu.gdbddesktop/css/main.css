@@ -1,0 +1,45 @@
+.root-pane {
+    -fx-background-color: white;
+}
+
+.log-label {
+    -fx-background-color: #F49900;
+}
+
+.box-nav {
+    -fx-background-color: #232F3F;
+}
+
+.box-nav .rx-toggle-button {
+    -fx-pref-height: 45;
+    -fx-background-color: #232F3F;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 0 8;
+    -fx-border-color: #232F3F;
+    -fx-text-fill: white;
+}
+
+.box-nav .rx-toggle-button:hover {
+    -fx-background-color: #111820;
+    -fx-border-color: #111820;
+}
+
+.box-nav .rx-toggle-button:selected {
+    -fx-background-color: #72B4E6;
+    -fx-border-color: #616dff;
+    -fx-font-weight: 900;
+}
+
+#btnExit:hover {
+    -fx-background-color: red;
+}
+
+#btnExit:hover SVGPath {
+    -fx-fill: white;
+}
+
+#btnExit {
+    -fx-border-color: #e4e4e4;
+    -fx-background-color: transparent;
+}
