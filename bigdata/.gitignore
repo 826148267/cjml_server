@@ -1,0 +1,3 @@
+# 项目排除路径
+/gdbigdata-accessmiddleserver/target/
+/gdbigdata-accessrealserver/target/
