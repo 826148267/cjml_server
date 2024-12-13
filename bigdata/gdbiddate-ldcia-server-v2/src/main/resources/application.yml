@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: ldcia-server-v2
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://gz-cynosdbmysql-grp-46q2jczh.sql.tencentcdb.com:25953/gdbd_acs?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: 
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      idle-timeout: 60000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      pool-name: DatebookHikariCP
+      maximum-pool-size: 5
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 3000MB
+      max-request-size: 3000MB
+
+server:
+  port: 10004
+  tomcat:
+    max-http-form-post-size: 100MB
+
+aliyun:
+  oss:
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    access-key-id: 
+    access-key-secret: 
