@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-server
+
+server:
+  port: 17000
+logging:
+  file:
+    name: /gdbigdata/eureka17000/gdbd-eureka17000-log.txt
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}.${server.port} #第一个变量需要在eureka客户端进行配置
+  client:
+    fetch-registry: false
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-server-0.eureka-server:17000/eureka/,http://eureka-server-1.eureka-server:17000/eureka/  #k8s的模板容器名称应为eureka-server，且StatefulSet
