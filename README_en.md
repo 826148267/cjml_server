@@ -1,6 +1,6 @@
 # Secure Storage System
 
-Introduction to ## 
+## Introduction
 
 This project is a secure storage system based on integrity auditing technology and ciphertext deduplication, aiming to provide a safe and reliable file storage and management solution. The system adopts a lightweight deduplication ciphertext integrity audit method to ensure the security and integrity of user data.
 
