@@ -209,7 +209,7 @@ CMD ["java","-jar","/gdbigdata/accessmiddleserver/gdbigdata-access-middle-server
 
 1. 克隆项目到本地：
    ```bash
-   git clone git@github.com:826148267/gdbd-desktop.git
+   git clone git@github.com/826148267/cjml_server.git
    ```
 
 2. 进入项目目录：
@@ -218,7 +218,7 @@ CMD ["java","-jar","/gdbigdata/accessmiddleserver/gdbigdata-access-middle-server
    ```
 
 3. 安装依赖：
-   Java9 以上环境（模块化编程需要）
+   Java9 以上环境（模块化编程需要，最好是Java17）
 
 4. 启动系统：
    编译运行后，之前点击运行软件即可
