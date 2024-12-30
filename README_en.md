@@ -112,96 +112,96 @@ docker run -p 30060:30060 --name myredis -v/home/Yang/桌面/docker-redis/redis.
 ### gdbigdata-user-auth
 
 ```bash
-#基础镜像
+#Basic image
 FROM openjdk:17-oracle
-#维护者，一般写姓名+邮箱
+#Maintainer, usually write name + email
 MAINTAINER gzf<zeavango@gmail.com>
-#构建时设置环境变量
+#Set environment variables when building
 #ENV
-#将jar包复制到镜像中，第一个变量为
+#Copy the jar package to the image, the first variable is
 ADD gdbigdate-user-auth-1.0-SNAPSHOT.jar /gdbigdata/userauth/gdbigdate-user-auth-1.0-SNAPSHOT.jar
-#指定容器启动时要启动的命令
+#Specify the command to start when the container starts
 #ENTRYPOINT ["mkdir","/gdbigdata/userauth/log"]
 #ENTRYPOINT ["cd","/gdbigdata/userauth"]
-#工作目录
+#working directory
 #WORKDIR /gdbigdata/accessrealserver
-#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+#Container volume The main reason is that the operation and maintenance personnel forget -v. With it, it will be mounted anonymously without being written randomly to the storage layer of the container.
 VOLUME ["/gdbigdata/userauth"]
-#就是我们平时写的 -p
+# is what we usually write -p
 EXPOSE 10003
-#镜像运行时需要运行的命令
+#Commands that need to be run when the mirror is running
 CMD ["java","-jar","/gdbigdata/userauth/gdbigdate-user-auth-1.0-SNAPSHOT.jar","&"]
 ```
 
 ### gdbigdate-ldcia-server-v2
 
 ```bash
-#基础镜像
+#Basic image
 FROM openjdk:17-oracle
-#维护者，一般写姓名+邮箱
+#Maintainer, usually write name + email
 MAINTAINER gzf<zeavango@gmail.com>
-#构建时设置环境变量
+#Set environment variables when building
 #ENV
-#将jar包复制到镜像中，第一个变量为
+#Copy the jar package to the image, the first variable is
 ADD target/ldcia-server-v2.jar /gdbigdata/ldcia/ldcia-server-v2.jar
 ADD src/main/resources/a.properties /gdbigdata/ldcia/a.properties
-#指定容器启动时要启动的命令
+#Specify the command to start when the container starts
 #ENTRYPOINT ["mkdir","/gdbigdata/ldcia/log"]
 #ENTRYPOINT ["cd","/gdbigdata/ldcia"]
-#工作目录
+#working directory
 #WORKDIR /gdbigdata/ldcia
-#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+#Container volume The main reason is that the operation and maintenance personnel forget -v. With it, it will be mounted anonymously without being written randomly to the storage layer of the container.
 VOLUME ["/gdbigdata/ldcia"]
-#就是我们平时写的 -p
+# is what we usually write -p
 EXPOSE 10004
-#镜像运行时需要运行的命令
+#Commands that need to be run when the mirror is running
 CMD ["java","-jar","/gdbigdata/ldcia/ldcia-server-v2.jar","&"]
 ```
 
 ### gdbigdata-access-real-server-v2
 ```bash
-#基础镜像
+#Basic image
 FROM openjdk:17-oracle
-#维护者，一般写姓名+邮箱
+#Maintainer, usually write name + email
 MAINTAINER gzf<zeavango@gmail.com>
-#构建时设置环境变量
+#Set environment variables when building
 #ENV
-#将jar包复制到镜像中，第一个变量为
+#Copy the jar package to the image, the first variable is
 ADD target/gdbigdata-access-real-server-v2-1.0-SNAPSHOT.jar /gdbigdata/accessrealserver/gdbigdata-access-real-server-v2-1.0-SNAPSHOT.jar
-#指定容器启动时要启动的命令
+#Specify the command to start when the container starts
 #ENTRYPOINT ["mkdir","/gdbigdata/accessrealserver/log"]
 #ENTRYPOINT ["cd","/gdbigdata/accessrealserver"]
-#工作目录
+#working directory
 #WORKDIR /gdbigdata/accessrealserver
-#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+#Container volume The main reason is that the operation and maintenance personnel forget -v. With it, it will be mounted anonymously without being written randomly to the storage layer of the container.
 VOLUME ["/gdbigdata/accessrealserver"]
-#就是我们平时写的 -p
+# is what we usually write -p
 EXPOSE 10001
-#镜像运行时需要运行的命令
+#Commands that need to be run when the mirror is running
 CMD ["java","--add-opens=java.base/java.lang=ALL-UNNAMED","-jar","/gdbigdata/accessrealserver/gdbigdata-access-real-server-v2-1.0-SNAPSHOT.jar","&"]
 ```
 
 ### gdbigdata-access-middle-server-v2
 
 ```bash
-#基础镜像
+#Basic image
 FROM openjdk:17-oracle
-#维护者，一般写姓名+邮箱
+#Maintainer, usually write name + email
 MAINTAINER gzf<zeavango@gmail.com>
-#构建时设置环境变量
+#Set environment variables when building
 #ENV
-#将jar包复制到镜像中，第一个变量为
+#Copy the jar package to the image, the first variable is
 ADD target/gdbigdata-access-middle-server-v2-1.0-SNAPSHOT.jar /gdbigdata/accessmiddleserver/gdbigdata-access-middle-server-v2-1.0-SNAPSHOT.jar
-#指定容器启动时要启动的命令
+#Specify the command to start when the container starts
 #ENTRYPOINT ["mkdir","/gdbigdata/accessrealserver/log"]
 #ENTRYPOINT ["cd","/gdbigdata/accessrealserver"]
-#工作目录
+#working directory
 #WORKDIR /gdbigdata/accessrealserver
-#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+#Container volume The main reason is that the operation and maintenance personnel forget -v. With it, it will be mounted anonymously without being written randomly to the storage layer of the container.
 VOLUME ["/gdbigdata/accessmiddleserver"]
-#就是我们平时写的 -p
+# is what we usually write -p
 EXPOSE 10002
-#镜像运行时需要运行的命令
+#Commands that need to be run when the mirror is running
 CMD ["java","-jar","/gdbigdata/accessmiddleserver/gdbigdata-access-middle-server-v2-1.0-SNAPSHOT.jar","&"]
 ```
 
@@ -303,7 +303,7 @@ The build method includes the following steps:
 - The storage service provider uses the data it holds to calculate the response to the challenge.
   
 ##  formula and correctness
-[轻量级可去重的密文完整性审计方法.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
+[Lightweight deduplication ciphertext integrity audit method.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
 
 ##  related dependencies
 - Spring Boot
