@@ -1,7 +1,7 @@
-感谢您对本项目的关注～
+感谢您对本项目的关注～～  
 请选择您的语言：
-- [中文](README.md)
-- [English](README_en.md)
+- [中文](README_zh.md)
+- [English](README.md)
 
 # 安全存储系统
 
