@@ -1,0 +1,329 @@
+# Secure Storage System
+
+Introduction to ## 
+
+This project is a secure storage system based on integrity auditing technology and ciphertext deduplication, aiming to provide a safe and reliable file storage and management solution. The system adopts a lightweight deduplication ciphertext integrity audit method to ensure the security and integrity of user data.
+
+##  properties
+
+- **Secure Storage**: All files are encrypted to ensure data security during transmission and storage.
+- **Cryptotext deduplication**: The system supports file deduplication, saving storage space and improving storage efficiency.
+- **Integrity Audit**: Through ciphertext integrity audit, ensure the integrity of the file during storage and prevent data tampering.
+- **Privacy Information Retrieval**: Through inadvertent access, the user's access behavior can also be guaranteed to be confidential. Its security is higher than the commonly discussed semantic security.
+- **User-friendly interface**: Provides an intuitive and easy-to-use user interface to facilitate users to upload, download and manage files.
+
+## private information retrieval
+Design based on the OSU protocol in the following article.
+> [Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf](https://github.com/user-attachments/files/18230817/Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf)
+
+## Cryptotext deduplication
+
+Ciphertext deduplication is a technology that deduplicates encrypted data, aiming to reduce storage space while maintaining data security. Here's how it works:
+
+1. **Encryption processing**: Before the file is uploaded, the system will encrypt the file and generate ciphertext.
+2. **Hash calculation**: The system hashes the ciphertext and generates a unique hash value. Files with the same content will generate the same ciphertext and hash value after encryption.
+3.  **Deduplicated Storage**: Before storing a new file, the system checks whether the hash of the file already exists. If it exists, the system will no longer store a copy of the file, but only keep a reference to the original file. This approach significantly reduces storage requirements while ensuring data security.
+
+## Integrity Audit
+
+Integrity auditing is a technique that ensures data has not been tampered with during storage and transmission. Its main steps include:
+
+1. **Data Encryption**: Before the file is uploaded, the system will encrypt the file to ensure the security of the data during transmission.
+2. **Hash Verification**: When the file is uploaded, the system will generate the hash value of the file and store it in the database. The hash value is used for subsequent integrity verification.
+3. **Periodic audit**: The system will regularly conduct integrity audits on stored files. By recalculating the file's hash and comparing it to the stored hash, the system can detect if the file has been tampered with.
+4. **Alert mechanism**: If it is found that the hash value of the file does not match the stored hash value, the system will trigger an alert to notify the administrator for further investigation and processing.
+
+##  system overall architecture diagram
+<p align="center">
+<img width="416" alt="image" src="https://github.com/user-attachments/assets/21fd4a8d-c8ed-4d8b-827a-e12cc5ec65d1" />
+</p>
+The client system is built using javafx. The backend uses an application server based on the springboot framework. There are 4 modules in the backend, namely gdbigdate-ldcia-server-v2, gdbigdata-access-middle-server-v2 and gdbigdata-access-real-server-v2, gdbigdata-user-auth
+
+##  project directory
+
+```plaintext
+cjml_server
+├── bigdata
+│   ├── gdbiddate-ldcia-server-v2
+│   ├── gdbigdata-access-middle-server-v2
+│   ├── gdbigdata-access-real-server-v2
+│   ├── gdbigdata-audit-csp-server
+│   ├── gdbigdata-audit-tpa-server
+│   ├── gdbigdata-dupless-csp-server
+│   ├── gdbigdata-dupless-ks-server
+│   ├── gdbigdata-eureka-17000
+│   ├── gdbigdata-gateway-17001
+│   ├── gdbigdata-tempserver
+│   └── gdbigdate-user-auth
+└── desktop
+```
+
+##  application functions
+The project mainly includes the following applications:
+
+1. **gdbiddate-ldcia-server-v2**: Mainly handles data auditing and integrity verification.
+2. **gdbigdata-access-middle-server-v2**: As an intermediate server, connect the client and the actual data storage server.
+3. **gdbigdata-access-real-server-v2**: Handles real data storage and retrieval.
+4. **gdbigdata-audit-csp-server**: Mainly handles integrity certification and auditing of data storage.
+5. **gdbigdata-audit-tpa-server**: Handles TPA (third-party audit) related functions.
+6. **gdbigdata-dupless-csp-server**: Handles data deduplication and storage tasks.
+7. **gdbigdata-dupless-ks-server**: Handles key management and secure storage.
+8. **gdbigdata-eureka-17000**: Service registration and discovery module.
+9. **gdbigdata-gateway-17001**: API gateway module.
+10. **gdbigdata-tempserver**: Temporary server, used for testing and development.
+11. **gdbigdate-user-auth**: User authentication module.
+12. **desktop**: Desktop client application.
+
+##  profile style
+
+Each module has its own configuration file, usually located in the `src/main/resources` directory:
+
+- `application.yml`: Global configuration file.
+- `application-dev.yml`: Development environment configuration file.
+- `application-prod.yml`: Production environment configuration file.
+
+Modify the appropriate configuration files as needed to suit your local or production environment.
+
+## Server-side deployment instructions
+| Server list to be deployed |
+| :------: |
+| gdbigdate-ldcia-server-v2 |
+| gdbigdata-access-middle-server-v2 |
+| gdbigdata-access-real-server-v2 |
+| gdbigdata-user-auth |
+| Mysql 8.0.27 |
+| redis |
+
+### server-side code
+[https://github.com/826148267/cjml_server/tree/master/bigdata](https://github.com/826148267/cjml_server/tree/master/bigdata)
+
+### MySQL
+
+```bash
+docker run --name gdbd-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --mount type=bind,src=/home/docker/mysql/conf/my.cnf,dst=/etc/mysql/my.cnf --mount type=bind,src=/media/Yang/DATA/mysql/datadir,dst=/var/lib/mysql --restart=on-failure:3 -d mysql:8.0.27
+```
+
+### Redis
+
+```bash
+docker run -p 30060:30060 --name myredis -v/home/Yang/桌面/docker-redis/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf
+```
+
+### gdbigdata-user-auth
+
+```bash
+#基础镜像
+FROM openjdk:17-oracle
+#维护者，一般写姓名+邮箱
+MAINTAINER gzf<zeavango@gmail.com>
+#构建时设置环境变量
+#ENV
+#将jar包复制到镜像中，第一个变量为
+ADD gdbigdate-user-auth-1.0-SNAPSHOT.jar /gdbigdata/userauth/gdbigdate-user-auth-1.0-SNAPSHOT.jar
+#指定容器启动时要启动的命令
+#ENTRYPOINT ["mkdir","/gdbigdata/userauth/log"]
+#ENTRYPOINT ["cd","/gdbigdata/userauth"]
+#工作目录
+#WORKDIR /gdbigdata/accessrealserver
+#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+VOLUME ["/gdbigdata/userauth"]
+#就是我们平时写的 -p
+EXPOSE 10003
+#镜像运行时需要运行的命令
+CMD ["java","-jar","/gdbigdata/userauth/gdbigdate-user-auth-1.0-SNAPSHOT.jar","&"]
+```
+
+### gdbigdate-ldcia-server-v2
+
+```bash
+#基础镜像
+FROM openjdk:17-oracle
+#维护者，一般写姓名+邮箱
+MAINTAINER gzf<zeavango@gmail.com>
+#构建时设置环境变量
+#ENV
+#将jar包复制到镜像中，第一个变量为
+ADD target/ldcia-server-v2.jar /gdbigdata/ldcia/ldcia-server-v2.jar
+ADD src/main/resources/a.properties /gdbigdata/ldcia/a.properties
+#指定容器启动时要启动的命令
+#ENTRYPOINT ["mkdir","/gdbigdata/ldcia/log"]
+#ENTRYPOINT ["cd","/gdbigdata/ldcia"]
+#工作目录
+#WORKDIR /gdbigdata/ldcia
+#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+VOLUME ["/gdbigdata/ldcia"]
+#就是我们平时写的 -p
+EXPOSE 10004
+#镜像运行时需要运行的命令
+CMD ["java","-jar","/gdbigdata/ldcia/ldcia-server-v2.jar","&"]
+```
+
+### gdbigdata-access-real-server-v2
+```bash
+#基础镜像
+FROM openjdk:17-oracle
+#维护者，一般写姓名+邮箱
+MAINTAINER gzf<zeavango@gmail.com>
+#构建时设置环境变量
+#ENV
+#将jar包复制到镜像中，第一个变量为
+ADD target/gdbigdata-access-real-server-v2-1.0-SNAPSHOT.jar /gdbigdata/accessrealserver/gdbigdata-access-real-server-v2-1.0-SNAPSHOT.jar
+#指定容器启动时要启动的命令
+#ENTRYPOINT ["mkdir","/gdbigdata/accessrealserver/log"]
+#ENTRYPOINT ["cd","/gdbigdata/accessrealserver"]
+#工作目录
+#WORKDIR /gdbigdata/accessrealserver
+#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+VOLUME ["/gdbigdata/accessrealserver"]
+#就是我们平时写的 -p
+EXPOSE 10001
+#镜像运行时需要运行的命令
+CMD ["java","--add-opens=java.base/java.lang=ALL-UNNAMED","-jar","/gdbigdata/accessrealserver/gdbigdata-access-real-server-v2-1.0-SNAPSHOT.jar","&"]
+```
+
+### gdbigdata-access-middle-server-v2
+
+```bash
+#基础镜像
+FROM openjdk:17-oracle
+#维护者，一般写姓名+邮箱
+MAINTAINER gzf<zeavango@gmail.com>
+#构建时设置环境变量
+#ENV
+#将jar包复制到镜像中，第一个变量为
+ADD target/gdbigdata-access-middle-server-v2-1.0-SNAPSHOT.jar /gdbigdata/accessmiddleserver/gdbigdata-access-middle-server-v2-1.0-SNAPSHOT.jar
+#指定容器启动时要启动的命令
+#ENTRYPOINT ["mkdir","/gdbigdata/accessrealserver/log"]
+#ENTRYPOINT ["cd","/gdbigdata/accessrealserver"]
+#工作目录
+#WORKDIR /gdbigdata/accessrealserver
+#容器卷 主要是怕运维人员忘记-v了，有了它会匿名挂载起来，而不会乱写到容器的存储层中
+VOLUME ["/gdbigdata/accessmiddleserver"]
+#就是我们平时写的 -p
+EXPOSE 10002
+#镜像运行时需要运行的命令
+CMD ["java","-jar","/gdbigdata/accessmiddleserver/gdbigdata-access-middle-server-v2-1.0-SNAPSHOT.jar","&"]
+```
+
+##  installation
+
+1.  clone the project locally:
+```bash
+git clone git@github.com/826148267/cjml_server.git
+```
+
+2. Enter the project directory:
+```bash
+cd gdbd-desktop
+```
+
+3.  installation dependencies:
+Java9 or above environment (required for modular programming, preferably Java17)
+
+4.  Start the system:
+After compiling and running, just click to run the software before
+
+##  use
+
+- Users can use the system by registering an account.
+- After logging in, users can upload files, and the system will automatically encrypt and deduplicate them.
+- Users can download their own files at any time and the system will ensure file integrity.
+
+##  function display
+
+### private information retrieval
+<p align="center">
+<img width="415" alt="image" src="https://github.com/user-attachments/assets/0670e127-a61d-43db-b59f-1fa6eb8cb3a9" />
+</p>
+<p align="center">
+<img width="415" alt="image" src="https://github.com/user-attachments/assets/498a32fe-a71b-48ae-96df-4fe54dbe1849" />
+</p>
+<p align="center">
+<img width="416" alt="image" src="https://github.com/user-attachments/assets/efc3518a-1c16-4ff0-a904-83d207dabb6f" />
+</p>
+<p align="center">
+<img width="416" alt="image" src="https://github.com/user-attachments/assets/d19591b0-bc69-4106-9a35-e8c49ea0a28c" />
+</p>
+
+###  Ciphertext deduplication related functions
+<p align="center">
+<img width="412" alt="image" src="https://github.com/user-attachments/assets/95f4c0cc-b245-4e40-8a84-fe2e18520f67" />
+</p>
+<p align="center">
+<img width="414" alt="image" src="https://github.com/user-attachments/assets/b87a3421-6c02-4c25-a250-78520c50a6d8" />
+</p>
+
+###  integrity audit related functions
+<p align="center">
+<img width="416" alt="image" src="https://github.com/user-attachments/assets/d6ab0f67-2851-4791-9099-8868ed0c5186" />
+</p>
+<p align="center">
+<img width="416" alt="image" src="https://github.com/user-attachments/assets/1b9235b0-45fe-4272-8366-1db69dbdf242" />
+</p>
+
+##  principle
+<p align="center">
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/e76f2a4b-429b-493f-9f83-fdfcbec99cc1" />
+</p>
+<p align="center">
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/0df527ed-2c87-4b7e-abac-e224f0548b31" />
+</p>
+<p align="center">
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/ecc5bf5a-7044-4c6c-8537-77cfc67095b4" />
+</p>
+A lightweight deduplication ciphertext integrity audit solution is characterized by including three roles: data owner, auditor and storage service provider.
+
+The method is roughly divided into three stages:
+
+1. **Initialization Phase**:
+- After the data owner is initialized, the corresponding data is sent to the storage service provider and auditor.
+
+2. **File Upload Phase**:
+- After the user preprocesses the original data, the preprocessed data is sent to the storage service provider.
+- The storage service provider responds, and the data owner determines whether the tag should be calculated based on the response results.
+- If calculation is needed, generate labels; otherwise, skip the label generation step and directly generate label conversion auxiliary materials and audit materials and send them to the storage service provider.
+
+3. **Audit Phase**:
+- The auditor sends a challenge to the target file to the storage service provider.
+- The storage service provider responds to the challenge, and the auditor verifies the response results.
+
+The build method includes the following steps:
+
+1. **Initialization Phase**:
+- Initialization of user keys, initialization of public and private key pairs for auditing, etc.
+
+2. **File upload stage**:
+- Generate a deduplication key and encrypt the original file.
+- Divide and encode encrypted files.
+- Encryption of deduplication keys, upload encrypted, diced and encoded files and encrypted deduplication keys.
+- Calculate and upload integrity labels (if necessary), label conversion auxiliary materials, and audit materials to storage service providers for block data.
+
+3. **Audit Phase**:
+- The auditor sends the challenge and verifies the correctness of the response to the challenge.
+- The storage service provider uses the data it holds to calculate the response to the challenge.
+  
+##  formula and correctness
+[轻量级可去重的密文完整性审计方法.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
+
+##  related dependencies
+- Spring Boot
+- Spring Data JPA
+- Spring Cloud
+- MySQL Connector
+- Redis
+- Swagger
+- Fastjson
+- JUnit
+- Lombok
+
+##  contributed
+
+Contributions of any kind are welcome! Please submit issues, suggestions, or pull requests.
+
+##  license
+
+This project is licensed under the MIT license, see the LICENSE file for details.
+
+## Contact
+
+If you have any questions, please contact [zeavango@gmail.com] or visit [https://github.com/826148267]
