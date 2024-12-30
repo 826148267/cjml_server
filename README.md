@@ -95,7 +95,7 @@ cjml_server
 | redis |
 
 ### 服务器端代码
-[https://github.com/826148267/gdbigdata](https://github.com/826148267/cjml_server/tree/master/bigdata)
+[https://github.com/826148267/cjml_server/tree/master/bigdata](https://github.com/826148267/cjml_server/tree/master/bigdata)
 
 ### MySQL
 
