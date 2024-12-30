@@ -1,5 +1,7 @@
-- /README.md         (简体中文)
-- /README_en.md (英文)
+感谢您对本项目的关注～
+请选择您的语言：
+- [中文](README.md)
+- [English](README_en.md)
 
 # 安全存储系统
 
