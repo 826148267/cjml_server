@@ -1,6 +1,6 @@
 Thank you for your attention to this project ~
 Please select your language:
-- [中文](README-zh.md)
+- [中文](README_zh.md)
 - [English](README.md)
 
 # Secure Storage System
