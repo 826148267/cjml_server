@@ -1,7 +1,7 @@
-Thank you for your attention to this project ~
+Thank you for your attention to this project ~  
 Please select your language:
-- [中文](README_zh.md)
 - [English](README.md)
+- [中文](README_zh.md)
 
 # Secure Storage System
 
