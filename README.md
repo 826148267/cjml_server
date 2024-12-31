@@ -9,7 +9,7 @@ Please select your language:
 
 This project is a secure storage system based on integrity auditing technology and ciphertext deduplication, aiming to provide a safe and reliable file storage and management solution. The system adopts a lightweight deduplication ciphertext integrity audit method to ensure the security and integrity of user data.
 
-##  properties
+##  Properties
 
 - **Secure Storage**: All files are encrypted to ensure data security during transmission and storage.
 - **Cryptotext deduplication**: The system supports file deduplication, saving storage space and improving storage efficiency.
@@ -17,7 +17,7 @@ This project is a secure storage system based on integrity auditing technology a
 - **Privacy Information Retrieval**: Through inadvertent access, the user's access behavior can also be guaranteed to be confidential. Its security is higher than the commonly discussed semantic security.
 - **User-friendly interface**: Provides an intuitive and easy-to-use user interface to facilitate users to upload, download and manage files.
 
-## private information retrieval
+## Privacy-preserving information retrieval
 Design based on the OSU protocol in the following article.
 > [Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf](https://github.com/user-attachments/files/18230817/Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf)
 
@@ -38,13 +38,13 @@ Integrity auditing is a technique that ensures data has not been tampered with d
 3. **Periodic audit**: The system will regularly conduct integrity audits on stored files. By recalculating the file's hash and comparing it to the stored hash, the system can detect if the file has been tampered with.
 4. **Alert mechanism**: If it is found that the hash value of the file does not match the stored hash value, the system will trigger an alert to notify the administrator for further investigation and processing.
 
-##  system overall architecture diagram
+##  System overall architecture diagram
 <p align="center">
 <img width="416" alt="image" src="https://github.com/user-attachments/assets/21fd4a8d-c8ed-4d8b-827a-e12cc5ec65d1" />
 </p>
 The client system is built using javafx. The backend uses an application server based on the springboot framework. There are 4 modules in the backend, namely gdbigdate-ldcia-server-v2, gdbigdata-access-middle-server-v2 and gdbigdata-access-real-server-v2, gdbigdata-user-auth
 
-##  project directory
+##  Project directory
 
 ```plaintext
 cjml_server
@@ -63,7 +63,7 @@ cjml_server
 └── desktop
 ```
 
-##  application functions
+##  Application functions
 The project mainly includes the following applications:
 
 1. **gdbiddate-ldcia-server-v2**: Mainly handles data auditing and integrity verification.
@@ -79,7 +79,7 @@ The project mainly includes the following applications:
 11. **gdbigdate-user-auth**: User authentication module.
 12. **desktop**: Desktop client application.
 
-##  profile style
+## Profile style
 
 Each module has its own configuration file, usually located in the `src/main/resources` directory:
 
@@ -99,7 +99,7 @@ Modify the appropriate configuration files as needed to suit your local or produ
 | Mysql 8.0.27 |
 | redis |
 
-### server-side code
+### Server-side code
 [https://github.com/826148267/cjml_server/tree/master/bigdata](https://github.com/826148267/cjml_server/tree/master/bigdata)
 
 ### MySQL
@@ -266,7 +266,7 @@ After compiling and running, just click to run the software before
 <img width="416" alt="image" src="https://github.com/user-attachments/assets/1b9235b0-45fe-4272-8366-1db69dbdf242" />
 </p>
 
-##  principle
+## Principle
 <p align="center">
 <img width="482" alt="image" src="https://github.com/user-attachments/assets/e76f2a4b-429b-493f-9f83-fdfcbec99cc1" />
 </p>
@@ -307,10 +307,10 @@ The build method includes the following steps:
 - The auditor sends the challenge and verifies the correctness of the response to the challenge.
 - The storage service provider uses the data it holds to calculate the response to the challenge.
   
-##  formula and correctness
+## Formula and correctness
 [Lightweight deduplication ciphertext integrity audit method.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
 
-##  related dependencies
+## Related dependencies
 - Spring Boot
 - Spring Data JPA
 - Spring Cloud
@@ -321,11 +321,11 @@ The build method includes the following steps:
 - JUnit
 - Lombok
 
-##  contributed
+## Contributed
 
 Contributions of any kind are welcome! Please submit issues, suggestions, or pull requests.
 
-##  license
+## License
 
 This project is licensed under the Apache license 2.0, see the [LICENSE](LICENSE.md) file for details.
 
