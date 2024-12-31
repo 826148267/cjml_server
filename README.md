@@ -327,7 +327,7 @@ Contributions of any kind are welcome! Please submit issues, suggestions, or pul
 
 ##  license
 
-This project is licensed under the Apache 2.0 license, see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the Apache license 2.0, see the [LICENSE](LICENSE.md) file for details.
 
 ## Contact
 
