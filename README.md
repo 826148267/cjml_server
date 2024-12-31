@@ -268,13 +268,13 @@ After compiling and running, just click to run the software before
 
 ## Principle
 <p align="center">
-<img width="482" alt="image" src="https://github.com/user-attachments/assets/e76f2a4b-429b-493f-9f83-fdfcbec99cc1" />
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/0938d4e8-0434-4a31-836c-7c46967989c1" />
 </p>
 <p align="center">
-<img width="482" alt="image" src="https://github.com/user-attachments/assets/0df527ed-2c87-4b7e-abac-e224f0548b31" />
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/b1633400-9662-4d4f-a60b-3740e845eb70" />
 </p>
 <p align="center">
-<img width="482" alt="image" src="https://github.com/user-attachments/assets/ecc5bf5a-7044-4c6c-8537-77cfc67095b4" />
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/965d215a-6607-4db2-9232-bf0217be5038" />
 </p>
 A lightweight deduplication ciphertext integrity audit solution is characterized by including three roles: data owner, auditor and storage service provider.
 
