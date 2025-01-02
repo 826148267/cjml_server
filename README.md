@@ -308,7 +308,7 @@ The build method includes the following steps:
 - The storage service provider uses the data it holds to calculate the response to the challenge.
   
 ## Formula and correctness
-[Lightweight deduplication ciphertext integrity audit method.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
+> [Lightweight deduplication ciphertext integrity audit method.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
 
 ## Related dependencies
 - Spring Boot
