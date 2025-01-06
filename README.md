@@ -40,7 +40,7 @@ Integrity auditing is a technique that ensures data has not been tampered with d
 
 ##  System overall architecture diagram
 <p align="center">
-<img width="416" alt="image" src="https://github.com/user-attachments/assets/21fd4a8d-c8ed-4d8b-827a-e12cc5ec65d1" />
+<img width="416" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398196225-21fd4a8d-c8ed-4d8b-827a-e12cc5ec65d1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T054201Z&X-Amz-Expires=300&X-Amz-Signature=51db09a36f27dc11b575a0d4ccbd56f1677e8047af52e28440f6bb507c4482dd&X-Amz-SignedHeaders=host" />
 </p>
 The client system is built using javafx. The backend uses an application server based on the springboot framework. There are 4 modules in the backend, namely gdbigdate-ldcia-server-v2, gdbigdata-access-middle-server-v2 and gdbigdata-access-real-server-v2, gdbigdata-user-auth
 
