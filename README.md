@@ -238,16 +238,16 @@ After compiling and running, just click to run the software before
 
 ### private information retrieval
 <p align="center">
-<img width="415" alt="image" src="https://github.com/user-attachments/assets/0670e127-a61d-43db-b59f-1fa6eb8cb3a9" />
+<img width="415" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193707-0670e127-a61d-43db-b59f-1fa6eb8cb3a9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053439Z&X-Amz-Expires=300&X-Amz-Signature=8c3d357cbfb4b86c52cb8c610e52eb640cec9349d67d4438c26355871f610700&X-Amz-SignedHeaders=host" />
 </p>
 <p align="center">
-<img width="415" alt="image" src="https://github.com/user-attachments/assets/498a32fe-a71b-48ae-96df-4fe54dbe1849" />
+<img width="415" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193740-498a32fe-a71b-48ae-96df-4fe54dbe1849.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053524Z&X-Amz-Expires=300&X-Amz-Signature=9ccfb4b92e27947f69a3a71f131293efd52ab6697db9f9e6a41a78c3fecae548&X-Amz-SignedHeaders=host" />
 </p>
 <p align="center">
-<img width="416" alt="image" src="https://github.com/user-attachments/assets/efc3518a-1c16-4ff0-a904-83d207dabb6f" />
+<img width="416" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193792-efc3518a-1c16-4ff0-a904-83d207dabb6f.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053557Z&X-Amz-Expires=300&X-Amz-Signature=7192d2c0a55c2e2c2cd9a1c7f91bfdb4156d59c82c6353f40ff97b6585bc56bf&X-Amz-SignedHeaders=host" />
 </p>
 <p align="center">
-<img width="416" alt="image" src="https://github.com/user-attachments/assets/d19591b0-bc69-4106-9a35-e8c49ea0a28c" />
+<img width="416" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193821-d19591b0-bc69-4106-9a35-e8c49ea0a28c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053808Z&X-Amz-Expires=300&X-Amz-Signature=d13d20b711a5297066c1e41d9caade5564745e9c111ded9da69dc7cee55a7063&X-Amz-SignedHeaders=host" />
 </p>
 
 ###  Ciphertext deduplication related functions
