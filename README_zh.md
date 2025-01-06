@@ -19,7 +19,7 @@
 
 ## 隐私信息检索
 基于以下文章中的不经意选择与更新协议（OSU protocol）进行设计。
-> [Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf](https://github.com/user-attachments/files/18230817/Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf)
+> [Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf](https://github.com/826148267/cjml_server/blob/master/Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf)
 
 ## 密文去重
 
@@ -308,7 +308,7 @@ CMD ["java","-jar","/gdbigdata/accessmiddleserver/gdbigdata-access-middle-server
    - 存储服务提供者利用自身持有的数据对挑战计算响应结果。
   
 ## 公式与正确性
-[轻量级可去重的密文完整性审计方法.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
+[轻量级可去重的密文完整性审计方法.docx](https://github.com/826148267/cjml_server/blob/master/%E4%B8%80%E7%A7%8D%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%8F%AF%E5%8E%BB%E9%87%8D%E7%9A%84%E5%AF%86%E6%96%87%E5%AE%8C%E6%95%B4%E6%80%A7%E5%AE%A1%E8%AE%A1%E6%96%B9%E6%B3%95_v2.pdf)
 
 ## 相关依赖
 - Spring Boot
