@@ -19,7 +19,7 @@ This project is a secure storage system based on integrity auditing technology a
 
 ## Privacy-preserving information retrieval
 Design based on the OSU protocol in the following article.
-> [Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf](https://github.com/user-attachments/files/18230817/Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf)
+> [Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf](https://github.com/826148267/cjml_server/blob/master/Enabling_Efficient_Secure_and_Privacy-Preserving_Mobile_Cloud_Storage.pdf)
 
 ## Cryptotext deduplication
 
@@ -311,7 +311,7 @@ The build method includes the following steps:
 - The storage service provider uses the data it holds to calculate the response to the challenge.
   
 ## Formula and correctness
-> [Lightweight deduplication ciphertext integrity audit method.docx](https://github.com/user-attachments/files/18230674/_v2.docx)
+> [Lightweight deduplication ciphertext integrity audit method.pdf](https://github.com/826148267/cjml_server/blob/master/audit%26deduplication.pdf)
 
 ## Related dependencies
 - Spring Boot
