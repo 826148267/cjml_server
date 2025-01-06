@@ -40,7 +40,7 @@ Integrity auditing is a technique that ensures data has not been tampered with d
 
 ##  System overall architecture diagram
 <p align="center">
-<img width="416" alt="image" src="https://github.com/cjml_server/软件架构图.png" />
+<img width="416" alt="image" src="https://github.com/826148267/cjml_server/blob/master/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%9B%BE.png" />
 " />
 </p>
 The client system is built using javafx. The backend uses an application server based on the springboot framework. There are 4 modules in the backend, namely gdbigdate-ldcia-server-v2, gdbigdata-access-middle-server-v2 and gdbigdata-access-real-server-v2, gdbigdata-user-auth
@@ -239,32 +239,35 @@ After compiling and running, just click to run the software before
 
 ### private information retrieval
 <p align="center">
-<img width="415" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193707-0670e127-a61d-43db-b59f-1fa6eb8cb3a9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053439Z&X-Amz-Expires=300&X-Amz-Signature=8c3d357cbfb4b86c52cb8c610e52eb640cec9349d67d4438c26355871f610700&X-Amz-SignedHeaders=host" />
+<img width="415" alt="image" src="https://github.com/826148267/cjml_server/blob/master/pir-1.png" />
 </p>
 <p align="center">
-<img width="415" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193740-498a32fe-a71b-48ae-96df-4fe54dbe1849.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053524Z&X-Amz-Expires=300&X-Amz-Signature=9ccfb4b92e27947f69a3a71f131293efd52ab6697db9f9e6a41a78c3fecae548&X-Amz-SignedHeaders=host" />
+<img width="415" alt="image" src="https://github.com/826148267/cjml_server/blob/master/pir-2.png" />
 </p>
 <p align="center">
-<img width="416" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193792-efc3518a-1c16-4ff0-a904-83d207dabb6f.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053557Z&X-Amz-Expires=300&X-Amz-Signature=7192d2c0a55c2e2c2cd9a1c7f91bfdb4156d59c82c6353f40ff97b6585bc56bf&X-Amz-SignedHeaders=host" />
+<img width="416" alt="image" src="https://github.com/826148267/cjml_server/blob/master/pir-3.png" />
 </p>
 <p align="center">
-<img width="416" alt="image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/33170232/398193821-d19591b0-bc69-4106-9a35-e8c49ea0a28c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250106%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250106T053808Z&X-Amz-Expires=300&X-Amz-Signature=d13d20b711a5297066c1e41d9caade5564745e9c111ded9da69dc7cee55a7063&X-Amz-SignedHeaders=host" />
+<img width="416" alt="image" src="https://github.com/826148267/cjml_server/blob/master/pir-4.png" />
+</p>
+<p align="center">
+<img width="416" alt="image" src="https://github.com/826148267/cjml_server/blob/master/pir-5.png" />
 </p>
 
 ###  Ciphertext deduplication related functions
 <p align="center">
-<img width="412" alt="image" src="https://github.com/user-attachments/assets/95f4c0cc-b245-4e40-8a84-fe2e18520f67" />
+<img width="412" alt="image" src="https://github.com/826148267/cjml_server/blob/master/dd-1.png" />
 </p>
 <p align="center">
-<img width="414" alt="image" src="https://github.com/user-attachments/assets/b87a3421-6c02-4c25-a250-78520c50a6d8" />
+<img width="412" alt="image" src="https://github.com/826148267/cjml_server/blob/master/dd-2.png" />
 </p>
 
 ###  integrity audit related functions
 <p align="center">
-<img width="416" alt="image" src="https://github.com/user-attachments/assets/d6ab0f67-2851-4791-9099-8868ed0c5186" />
+<img width="416" alt="image" src="https://github.com/826148267/cjml_server/blob/master/sj-1.png" />
 </p>
 <p align="center">
-<img width="416" alt="image" src="https://github.com/user-attachments/assets/1b9235b0-45fe-4272-8366-1db69dbdf242" />
+<img width="416" alt="image" src="https://github.com/826148267/cjml_server/blob/master/sj-2.png" />
 </p>
 
 ## Principle
