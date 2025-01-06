@@ -40,7 +40,7 @@ Integrity auditing is a technique that ensures data has not been tampered with d
 
 ##  System overall architecture diagram
 <p align="center">
-<img width="416" alt="image" src="https://github.com/user-attachments/assets/150de3bd-05f9-480e-b554-60f69bac0412" />
+<img width="416" alt="image" src="https://github.com/cjml_server/软件架构图.png" />
 " />
 </p>
 The client system is built using javafx. The backend uses an application server based on the springboot framework. There are 4 modules in the backend, namely gdbigdate-ldcia-server-v2, gdbigdata-access-middle-server-v2 and gdbigdata-access-real-server-v2, gdbigdata-user-auth
